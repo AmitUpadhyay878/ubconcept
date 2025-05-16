@@ -1,5 +1,7 @@
+'use client'
 import Link from "next/link"
 import { Lightbulb, Mail, Phone, MapPin } from "lucide-react"
+import { usePathname } from "next/navigation"
 
 // Define services for the footer
 const services = [
@@ -11,6 +13,7 @@ const services = [
 ]
 
 export default function Footer() {
+  const pathname = usePathname() 
   return (
     <footer className="bg-black/[0.98] border-t border-white/10">
       <div className="container mx-auto px-6 py-12">
@@ -35,22 +38,57 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-amber-400 transition-colors">
+                <Link href="/" className={`text-gray-400 hover:text-amber-400 transition-colors
+                  ${
+                    pathname === "/"
+                      ? "text-amber-600 bg-white/10 font-semibold"
+                      : "text-gray-300"
+                  }
+                  `}>
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about-us" className="text-gray-400 hover:text-amber-400 transition-colors">
+                <Link href="/about-us" className={`text-gray-400 hover:text-amber-400 transition-colors
+                  ${
+                    pathname === "/about-us"
+                      ? "text-amber-600 bg-white/10 font-semibold"
+                      : "text-gray-300"
+                  }
+                  `}>
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio" className="text-gray-400 hover:text-amber-400 transition-colors">
+                <Link href="/portfolio" className={`text-gray-400 hover:text-amber-400 transition-colors
+                  ${
+                    pathname === "/portfolio"
+                      ? "text-amber-600 bg-white/10 font-semibold"
+                      : "text-gray-300"
+                  }
+                  `}>
                   Portfolio
                 </Link>
               </li>
               <li>
-                <Link href="/contact-us" className="text-gray-400 hover:text-amber-400 transition-colors">
+                <Link href="/blogs" className={`text-gray-400 hover:text-amber-400 transition-colors
+                  ${
+                    pathname === "/blogs"
+                      ? "text-amber-600 bg-white/10 font-semibold"
+                      : "text-gray-300"
+                  }
+                  `}>
+                  Blogs
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact-us" className={`text-gray-400 hover:text-amber-400 transition-colors
+                  ${
+                    pathname === "/contact-us"
+                      ? "text-amber-600 bg-white/10 font-semibold"
+                      : "text-gray-300"
+                  }
+                  `}>
                   Contact Us
                 </Link>
               </li>
@@ -63,7 +101,11 @@ export default function Footer() {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <Link href={service.href} className="text-gray-400 hover:text-amber-400 transition-colors">
+                  <Link href={service.href} className={`text-gray-400 hover:text-amber-400 transition-colors
+                    ${
+                      pathname === service.href ? "text-amber-600 bg-white/10 font-semibold" : ""
+                    }
+                    `}>
                     {service.title}
                   </Link>
                 </li>
@@ -77,7 +119,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Mail className="h-5 w-5 text-amber-400 mr-3 mt-0.5" />
-                <span className="text-gray-400">info@ubconcept.com</span>
+                <span className="text-gray-400">amitupadhyay878@gmail.com</span>
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 text-amber-400 mr-3 mt-0.5" />

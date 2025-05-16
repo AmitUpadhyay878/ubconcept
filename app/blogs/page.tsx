@@ -100,7 +100,7 @@ export default async function BlogPage() {
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 text-center">
           Our{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-amber-500">
-            Blog
+          Insights
           </span>
         </h1>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">

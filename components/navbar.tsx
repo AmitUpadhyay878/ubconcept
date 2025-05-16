@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Menu, Lightbulb, ChevronDown, ChevronRight } from "lucide-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { usePathname } from "next/navigation" // Added import
 import { useState, useEffect, useRef } from "react"
 import { useAppStore } from "@/lib/store"
 
@@ -37,6 +38,7 @@ const services = [
 ]
 
 export default function Navbar() {
+  const pathname = usePathname() // Get current path
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
@@ -133,12 +135,17 @@ export default function Navbar() {
           <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-amber-500 rounded-md transform rotate-45"></div>
           <Lightbulb className="w-5 h-5 text-white relative z-10" />
         </div>
-        <span className="text-white font-medium text-xl">UBConcept</span>
+        <span className={`text-white font-medium text-xl ${pathname === '/' ? 'text-amber-400' : ''}`}>UBConcept</span>
       </Link>
 
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center space-x-8">
-        <Link href="/about-us" className="text-gray-300 hover:text-white transition-colors">
+        <Link
+          href="/about-us"
+          className={`text-gray-300 hover:text-white transition-colors ${
+            pathname === "/about-us" ? "text-amber-600 font-semibold" : ""
+          }`}
+        >
           About Us
         </Link>
 
@@ -146,17 +153,39 @@ export default function Navbar() {
         <button
           ref={servicesButtonRef}
           onClick={() => setServicesOpen(!servicesOpen)}
-          className="flex items-center text-gray-300 hover:text-white transition-colors focus:outline-none"
+          className={`flex items-center hover:text-white transition-colors focus:outline-none ${
+            pathname.startsWith("/services")
+              ? "text-amber-600 font-semibold"
+              : "text-gray-300"
+          }`}
         >
           Services
           <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
         </button>
 
-        <Link href="/portfolio" className="text-gray-300 hover:text-white transition-colors">
+        <Link
+          href="/portfolio"
+          className={`text-gray-300 hover:text-white transition-colors ${
+            pathname === "/portfolio" ? "text-amber-600 font-semibold" : ""
+          }`}
+        >
           Portfolio
         </Link>
+        <Link
+          href="/blogs"
+          className={`text-gray-300 hover:text-white transition-colors ${
+            pathname === "/blogs" ? "text-amber-600 font-semibold" : ""
+          }`}
+        >
+          Blogs
+        </Link>
 
-        <Link href="/contact-us" className="text-gray-300 hover:text-white transition-colors">
+        <Link
+          href="/contact-us"
+          className={`text-gray-300 hover:text-white transition-colors ${
+            pathname === "/contact-us" ? "text-amber-600 font-semibold" : ""
+          }`}
+        >
           Contact Us
         </Link>
       </div>
@@ -176,10 +205,12 @@ export default function Navbar() {
               <Link
                 key={service.title}
                 href={service.href}
-                className="flex flex-col px-4 py-2 hover:bg-white/5 transition-colors"
+                className={`flex flex-col px-4 py-2 hover:bg-white/5 transition-colors ${
+                  pathname === service.href ? "bg-white/10" : ""
+                }`}
                 onClick={() => setServicesOpen(false)}
               >
-                <span className="text-white font-medium">{service.title}</span>
+                <span className={`font-medium ${pathname === service.href ? 'text-amber-600' : 'text-white'}`}>{service.title}</span>
                 <span className="text-gray-400 text-sm mt-1">{service.description}</span>
               </Link>
             ))}
@@ -206,13 +237,21 @@ export default function Navbar() {
           <div className="p-4">
             <Link
               href="/about-us"
-              className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-md transition-colors"
+              className={`block py-2 px-4 hover:text-white hover:bg-white/5 rounded-md transition-colors ${
+                pathname === "/about-us"
+                  ? "text-amber-600 bg-white/10 font-semibold"
+                  : "text-gray-300"
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               About Us
             </Link>
 
-            <div className="py-2 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-md transition-colors cursor-pointer group">
+            <div className={`py-2 px-4 hover:text-white hover:bg-white/5 rounded-md transition-colors cursor-pointer group ${
+                pathname.startsWith("/services")
+                  ? "text-amber-600 bg-white/10 font-semibold"
+                  : "text-gray-300"
+              }`}>
               <div className="flex items-center justify-between">
                 <span>Services</span>
                 <ChevronDown className="h-4 w-4 group-hover:hidden" />
@@ -223,7 +262,11 @@ export default function Navbar() {
                   <Link
                     key={service.title}
                     href={service.href}
-                    className="block py-1 text-sm text-gray-400 hover:text-amber-400 transition-colors"
+                    className={`block py-1 text-sm hover:text-amber-400 transition-colors ${
+                      pathname === service.href
+                        ? "text-amber-600 font-semibold"
+                        : "text-gray-400"
+                    }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {service.title}
@@ -234,15 +277,34 @@ export default function Navbar() {
 
             <Link
               href="/portfolio"
-              className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-md transition-colors"
+              className={`block py-2 px-4 hover:text-white hover:bg-white/5 rounded-md transition-colors ${
+                pathname === "/portfolio"
+                  ? "text-amber-600 bg-white/10 font-semibold"
+                  : "text-gray-300"
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Portfolio
             </Link>
+            <Link
+              href="/blogs" // Added Blogs link to mobile menu
+              className={`block py-2 px-4 hover:text-white hover:bg-white/5 rounded-md transition-colors ${
+                pathname === "/blogs"
+                  ? "text-amber-600 bg-white/10 font-semibold"
+                  : "text-gray-300"
+              }`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Blogs
+            </Link>
 
             <Link
               href="/contact-us"
-              className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-md transition-colors"
+              className={`block py-2 px-4 hover:text-white hover:bg-white/5 rounded-md transition-colors ${
+                pathname === "/contact-us"
+                  ? "text-amber-600 bg-white/10 font-semibold"
+                  : "text-gray-300"
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact Us

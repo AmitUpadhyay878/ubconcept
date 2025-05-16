@@ -65,7 +65,7 @@ export default async function BlogSection() {
             </p>
           </div>
 
-          <Link href="/blog" className="mt-4 md:mt-0">
+          <Link href="/blogs" className="mt-4 md:mt-0">
             <Button variant="outline" className="text-white border-amber-500 hover:bg-amber-500/20">
               View All Articles
               <ArrowRight className="ml-2 h-4 w-4" />

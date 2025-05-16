@@ -45,28 +45,36 @@ export default function ContactUsClient() {
     setIsSubmitting(true)
 
     try {
-      // In a real application, you would send this data to your backend
-      // and then forward it to the recipient email: amitupadhyay878@gmail.com
-      console.log("Form submitted to:", RECIPIENT_EMAIL, data)
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      toast({
-        title: "Message Sent",
-        description: `Thank you for your message! We will get back to you soon. Your message has been sent to ${RECIPIENT_EMAIL}`,
-      })
-
-      // Reset form
-      form.reset()
+      if (response.ok) {
+        toast({
+          title: "Message Sent",
+          description: `Thank you for your message! We will get back to you soon.`,
+        });
+        form.reset();
+        setIsSubmitting(false)
+      } else {
+        const errorData = await response.json();
+        toast({
+          title: "Error",
+          description: errorData.message || "There was a problem sending your message. Please try again.",
+          variant: "destructive",
+        });
+      }
     } catch (error) {
       toast({
         title: "Error",
         description: "There was a problem sending your message. Please try again.",
         variant: "destructive",
-      })
-      console.error("Form submission error:", error)
-    } finally {
+      });
+    }finally{
       setIsSubmitting(false)
     }
   }
@@ -92,7 +100,7 @@ export default function ContactUsClient() {
                   <div>
                     <h3 className="text-lg font-medium text-white">Email</h3>
                     <p className="text-gray-300">{RECIPIENT_EMAIL}</p>
-                    <p className="text-gray-300">support@ubconcept.com</p>
+                    {/* <p className="text-gray-300">support@ubconcept.com</p> */}
                   </div>
                 </div>
 
