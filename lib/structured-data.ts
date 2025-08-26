@@ -71,8 +71,8 @@ export const localBusinessData = {
     "contactType": "Customer Service",
     "email": "info@ubconcept.vercel.app",
     "areaServed": ["IN","US", "CA", "UK"],
-    "url": "https://ubconcept.vercel.app/",
-    "contactUrl": "https://ubconcept.vercel.app/contact"
+    "url": "https://ubconcept.vercel.app/contact",
+    // "contactUrl": "https://ubconcept.vercel.app/contact"
   }
 }
 
