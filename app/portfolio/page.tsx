@@ -8,12 +8,45 @@ export const metadata: Metadata = {
   title: "Portfolio | UBConcept",
   description:
     "Explore our diverse range of innovative products and projects that showcase our commitment to transforming ideas into impactful solutions.",
+  keywords: ["portfolio", "case studies", "product examples", "project showcase", "innovation examples"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://ubconcept.vercel.app/portfolio",
+  },
+  authors: [
+    {
+      name: "UBConcept",
+      url: "https://ubconcept.vercel.app",
+    },
+  ],
+  publisher: "UBConcept",
+  category: "portfolio",
+  verification: {
+    google: "google-site-verification=google.html",
+  },
   openGraph: {
     title: "Portfolio | UBConcept",
     description:
       "Explore our diverse range of innovative products and projects that showcase our commitment to transforming ideas into impactful solutions.",
     type: "website",
+    url: "https://ubconcept.vercel.app/portfolio",
+    siteName: "UBConcept",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio | UBConcept",
+    description: "Explore our diverse range of innovative products and projects."
+  }
 }
 
 // Define the project type

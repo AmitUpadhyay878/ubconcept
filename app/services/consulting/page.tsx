@@ -6,11 +6,45 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Product Consulting Services | UBConcept",
   description: "Expert guidance throughout your product journey, from concept to market success.",
+  keywords: ["product consulting", "innovation strategy", "product roadmap", "business growth", "expert guidance"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://ubconcept.vercel.app/services/consulting",
+
+  },
+  authors: [
+    {
+      name: "UBConcept",
+      url: "https://ubconcept.vercel.app",
+    },
+  ],
+  publisher: "UBConcept",
+  category: "product-consulting",
+  verification: {
+    google: "google-site-verification=google.html",
+  },
   openGraph: {
     title: "Product Consulting Services | UBConcept",
     description: "Expert guidance throughout your product journey, from concept to market success.",
     type: "website",
+    url: "https://ubconcept.com/services/consulting",
+    siteName: "UBConcept",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Product Consulting Services | UBConcept",
+    description: "Expert guidance throughout your product journey, from concept to market success."
+  }
 }
 
 export default function ConsultingPage() {

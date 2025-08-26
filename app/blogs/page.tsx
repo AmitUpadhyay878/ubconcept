@@ -7,10 +7,43 @@ import BlogPostImage from "@/components/blog-post-image"
 export const metadata: Metadata = {
   title: "Blog | UBConcept",
   description: "Latest insights on product development, design trends, and innovation",
+  keywords: ["product development blog", "design trends", "innovation insights", "industry news", "UBConcept blog"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://ubconcept.vercel.app/blogs",
+  },
+  authors: [
+    {
+      name: "UBConcept",
+      url: "https://ubconcept.vercel.app",
+    },
+  ],
+  publisher: "UBConcept",
+  category: "blog",
+  verification: {
+    google: "google-site-verification=google.html",
+  },
   openGraph: {
     title: "Blog | UBConcept",
     description: "Latest insights on product development, design trends, and innovation",
     type: "website",
+    url: "https://ubconcept.vercel.app/blogs",
+    siteName: "UBConcept",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | UBConcept",
+    description: "Latest insights on product development, design trends, and innovation"
   }
 }
 

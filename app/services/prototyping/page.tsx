@@ -6,11 +6,45 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Prototyping Services | UBConcept",
   description: "Rapidly transform concepts into functional prototypes to validate ideas and accelerate development.",
+  keywords: ["prototyping", "rapid prototyping", "3D printing", "functional prototypes", "product validation"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://ubconcept.vercel.app/services/prototyping",
+
+  },
+  authors: [
+    {
+      name: "UBConcept",
+      url: "https://ubconcept.vercel.app",
+    },
+  ],
+  publisher: "UBConcept",
+  category: "Prototyping",
+  verification: {
+    google: "google-site-verification=google.html",
+  },
   openGraph: {
     title: "Prototyping Services | UBConcept",
     description: "Rapidly transform concepts into functional prototypes to validate ideas and accelerate development.",
     type: "website",
+    url: "https://ubconcept.com/services/prototyping",
+    siteName: "UBConcept",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prototyping Services | UBConcept",
+    description: "Rapidly transform concepts into functional prototypes to validate ideas and accelerate development."
+  }
 }
 
 export default function PrototypingPage() {

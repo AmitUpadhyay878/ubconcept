@@ -5,12 +5,45 @@ export const metadata: Metadata = {
   title: "About Us | UBConcept",
   description:
     "Learn about UBConcept, a forward-thinking product development studio dedicated to transforming innovative ideas into market-ready products.",
+  keywords: ["about UBConcept", "product development team", "innovation studio", "our mission", "our values"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://ubconcept.vercel.app/about-us",
+  },
+  authors: [
+    {
+      name: "UBConcept",
+      url: "https://ubconcept.vercel.app",
+    },
+  ],
+  publisher: "UBConcept",
+  category: "about-us",
+  verification: {
+    google: "google-site-verification=google.html",
+  },
   openGraph: {
     title: "About Us | UBConcept",
     description:
       "Learn about UBConcept, a forward-thinking product development studio dedicated to transforming innovative ideas into market-ready products.",
     type: "website",
+    url: "https://ubconcept.com/about-us",
+    siteName: "UBConcept",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | UBConcept",
+    description: "Learn about UBConcept, a forward-thinking product development studio."
+  }
 }
 
 export default function AboutUs() {

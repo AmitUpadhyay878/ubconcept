@@ -5,12 +5,46 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Product Design Services | UBConcept",
-  description: "User-centered design solutions that transform ideas into innovative, market-ready products.",
+  description: "User-centered design solutions that transform ideas into innovative, market-ready products. Our expert team delivers exceptional product experiences.",
+  keywords: ["product design", "user experience", "UI/UX", "industrial design", "concept development"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://ubconcept.vercel.app/services/product-design",
+
+  },
+  authors: [
+    {
+      name: "UBConcept",
+      url: "https://ubconcept.vercel.app",
+    },
+  ],
+  publisher: "UBConcept",
+  category: "Product Design",
+  verification: {
+    google: "google-site-verification=google.html",
+  },
   openGraph: {
     title: "Product Design Services | UBConcept",
     description: "User-centered design solutions that transform ideas into innovative, market-ready products.",
     type: "website",
+    url: "https://ubconcept.com/services/product-design",
+    siteName: "UBConcept",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Product Design Services | UBConcept",
+    description: "User-centered design solutions that transform ideas into innovative, market-ready products."
+  }
 }
 
 export default function ProductDesignPage() {

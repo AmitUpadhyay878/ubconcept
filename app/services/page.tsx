@@ -5,12 +5,45 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Our Services | UBConcept",
-  description: "Comprehensive product development services to transform your ideas into market-ready solutions.",
+  description: "Comprehensive product development services to transform your ideas into market-ready solutions. From design to manufacturing, we offer end-to-end product development.",
+  keywords: ["ubconcept","multiqos","software company","software company ahmedabad","product development", "design services", "prototyping", "manufacturing", "market research", "consulting"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://ubconcept.vercel.app",
+  },
+  authors: [
+    {
+      name: "UBConcept",
+      url: "https://ubconcept.vercel.app",
+    },
+  ],
+  publisher: "UBConcept",
+  category: "website",
+  verification: {
+    google: "google-site-verification=google.html",
+  },
   openGraph: {
     title: "Our Services | UBConcept",
-    description: "Comprehensive product development services to transform your ideas into market-ready solutions.",
+    description: "Comprehensive product development services to transform your ideas into market-ready solutions. From design to manufacturing, we offer end-to-end product development.",
     type: "website",
+    url: "https://ubconcept.vercel.app/services",
+    siteName: "UBConcept",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Services | UBConcept",
+    description: "Comprehensive product development services to transform your ideas into market-ready solutions."
+  }
 }
 
 // Define services

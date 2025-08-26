@@ -6,11 +6,44 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Manufacturing Solutions | UBConcept",
   description: "End-to-end manufacturing services to transform your prototypes into market-ready products at scale.",
+  keywords: ["manufacturing", "production", "scaling", "supply chain", "quality control"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://ubconcept.vercel.app/services/manufacturing",
+  },
+  authors: [
+    {
+      name: "UBConcept",
+      url: "https://ubconcept.vercel.app",
+    },
+  ],
+  publisher: "UBConcept",
+  category: "Manufacturing",
+  verification: {
+    google: "google-site-verification=google.html",
+  },
   openGraph: {
     title: "Manufacturing Solutions | UBConcept",
     description: "End-to-end manufacturing services to transform your prototypes into market-ready products at scale.",
     type: "website",
+    url: "https://ubconcept.vercel.app/services/manufacturing",
+    siteName: "UBConcept",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Manufacturing Solutions | UBConcept",
+    description: "End-to-end manufacturing services to transform your prototypes into market-ready products at scale."
+  }
 }
 
 export default function ManufacturingPage() {

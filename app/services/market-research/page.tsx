@@ -7,12 +7,47 @@ export const metadata: Metadata = {
   title: "Market Research Services | UBConcept",
   description:
     "In-depth market analysis and competitive research to inform your product strategy and maximize market potential.",
+  keywords: ["market research", "competitive analysis", "market trends", "consumer insights", "product strategy"],
+   robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://ubconcept.vercel.app/services/market-research",
+
+  },
+  authors: [
+    {
+      name: "UBConcept",
+      url: "https://ubconcept.vercel.app",
+    },
+  ],
+  publisher: "UBConcept",
+  category: "Market Research",
+
+  verification: {
+    google: "google-site-verification=google.html",
+  },
   openGraph: {
     title: "Market Research Services | UBConcept",
     description:
       "In-depth market analysis and competitive research to inform your product strategy and maximize market potential.",
     type: "website",
+    url: "https://ubconcept.vercel.app/services/market-research",
+    siteName: "UBConcept",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Market Research Services | UBConcept",
+    description: "In-depth market analysis and competitive research to inform your product strategy."
+  }
 }
 
 export default function MarketResearchPage() {
