@@ -8,6 +8,11 @@ import { FloatingPaper } from "@/components/floating-paper"
 import { RoboAnimation } from "@/components/robo-animation"
 import { SparklesCore } from "@/components/sparkles"
 import Link from "next/link"
+import dynamic from "next/dynamic"
+
+// Dynamically import non-critical components
+const DynamicFloatingPaper = dynamic(() => import("@/components/floating-paper").then(mod => ({ default: mod.FloatingPaper })), { ssr: true })
+const DynamicRoboAnimation = dynamic(() => import("@/components/robo-animation").then(mod => ({ default: mod.RoboAnimation })), { ssr: true })
 
 export default function Hero() {
   // Create a ref for the hero section
@@ -31,7 +36,7 @@ export default function Hero() {
 
       {/* Floating papers background - reduced count for better performance */}
       <div className="absolute inset-0 overflow-hidden">
-        <FloatingPaper count={4} /> {/* Reduced from 6 to 4 */}
+        <DynamicFloatingPaper count={4} /> {/* Reduced from 6 to 4 */}
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -83,9 +88,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Animated robot */}
+      {/* Animated robot - dynamically loaded */}
       <div className="absolute bottom-0 right-0 w-96 h-96">
-        <RoboAnimation />
+        <DynamicRoboAnimation />
       </div>
     </div>
   )
