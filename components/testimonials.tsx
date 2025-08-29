@@ -23,7 +23,7 @@ const testimonials: Testimonial[] = [
     company: "TechStart Inc.",
     content:
       "UBConcept transformed our rough idea into a market-ready product in record time. Their attention to detail and user-focused approach resulted in a product that exceeded our expectations and delighted our customers.",
-    image: "/placeholder.svg?height=100&width=100&text=SJ",
+    image: "/images/testimonial/SarahJohnson.webp",
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const testimonials: Testimonial[] = [
     company: "InnovateLabs",
     content:
       "Working with UBConcept was a game-changer for our business. Their team's technical expertise and creative problem-solving helped us overcome complex challenges and deliver a revolutionary product to market.",
-    image: "/placeholder.svg?height=100&width=100&text=MC",
+    image: "/images/testimonial/MichaelChen.webp",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const testimonials: Testimonial[] = [
     company: "GreenTech Solutions",
     content:
       "The team at UBConcept brought both technical excellence and strategic thinking to our project. They did not just build what we asked for—they improved upon our vision and delivered a product that truly stands out in the market.",
-    image: "/placeholder.svg?height=100&width=100&text=ER",
+    image: "/images/testimonial/EmilyRodriguez.webp",
   },
 ]
 
@@ -98,7 +98,7 @@ export default function Testimonials() {
                       <AvatarFallback name={testimonials[currentIndex].name} className="w-full h-full" />
                     ) : (
                       <img
-                        src={testimonials[currentIndex].image || "/placeholder.svg"}
+                        src={ testimonials[currentIndex].image || "/placeholder.svg"}
                         alt={testimonials[currentIndex].name}
                         className="w-full h-full object-cover"
                         onError={() => handleImageError(testimonials[currentIndex].id)}
