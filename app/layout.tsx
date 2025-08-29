@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   // Add viewport metadata for better mobile experience
   viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   // Add additional metadata for better SEO
+  keywords: ["ubconcept","UBConcept","Web Development","Web Development company","Web Development Company in Ahmedabad","product development", "innovation", "startup", "technology"],
   openGraph: {
     title: "UBConcept - Transform Your Idea into Product",
     description: "Transform innovative ideas into market-ready products with our comprehensive approach.",
@@ -52,15 +53,20 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+
   twitter: {
     card: "summary_large_image",
     title: "UBConcept - Transform Your Idea into Product",
     description: "Transform innovative ideas into market-ready products with our comprehensive approach.",
     images: ["https://ubconcept.vercel.app/og-image.png"],
   },
+  metadataBase: new URL("https://ubconcept.vercel.app"),
   icons: {
     icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon-16x16.png",
   },
+  manifest: "/site.webmanifest",
 }
 
 export default function RootLayout({

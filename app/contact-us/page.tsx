@@ -43,7 +43,19 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Us | UBConcept",
     description: "Get in touch with UBConcept to discuss your product development needs."
-  }
+  },
+  metadataBase: new URL("https://ubconcept.vercel.app"),
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon-16x16.png",
+  },
+  manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "UBConcept",
+  },
 }
 
 export default function ContactUs() {

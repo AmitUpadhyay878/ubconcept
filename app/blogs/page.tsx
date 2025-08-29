@@ -44,7 +44,19 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog | UBConcept",
     description: "Latest insights on product development, design trends, and innovation"
-  }
+  },
+  metadataBase: new URL("https://ubconcept.vercel.app"),
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon-16x16.png",
+  },
+  manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "UBConcept",
+  },
 }
 
 // Fallback blog posts in case the fetch fails

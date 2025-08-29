@@ -44,7 +44,19 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Product Consulting Services | UBConcept",
     description: "Expert guidance throughout your product journey, from concept to market success."
-  }
+  },
+  metadataBase: new URL("https://ubconcept.vercel.app"),
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon-16x16.png",
+  },
+  manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "UBConcept",
+  },
 }
 
 export default function ConsultingPage() {
