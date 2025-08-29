@@ -46,11 +46,11 @@ export const localBusinessData = {
   "address": [
     {
       "@type": "PostalAddress",
-      "streetAddress": "123 Innovation Drive",
-      "addressLocality": "San Francisco",
-      "addressRegion": "CA",
-      "postalCode": "94103",
-      "addressCountry": "US"
+      "streetAddress": "403,Sumeet Apartment,Mansi Circle,Vastrapur",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "postalCode": "380015",
+      "addressCountry": "IN"
     }
   ],
   "openingHoursSpecification": {
