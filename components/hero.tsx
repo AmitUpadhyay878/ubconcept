@@ -45,7 +45,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-6" // Add explicit height to reduce CLS
+            className="mb-6 min-h-[60px] md:min-h-[80px] lg:min-h-[100px]" // Add explicit height to reduce CLS
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white">
               Transform Your Idea into

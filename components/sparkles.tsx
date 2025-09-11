@@ -53,6 +53,8 @@ export const SparklesCore = ({
 
     const particles: Particle[] = []
     let animationFrameId: number
+    let lastRenderTime = 0
+    const targetFPS = 30 // Limit to 30 FPS for better performance
 
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
@@ -116,8 +118,15 @@ export const SparklesCore = ({
       }
     }
 
-    const animate = () => {
+    const animate = (timestamp: number) => {
       if (!ctx) return
+
+      // Limit FPS for better performance
+      if (timestamp - lastRenderTime < 1000 / targetFPS) {
+        animationFrameId = requestAnimationFrame(animate)
+        return
+      }
+      lastRenderTime = timestamp
 
       // Clear canvas even if dropdown is open (to prevent ghosting)
       ctx.clearRect(0, 0, canvas.width, canvas.height)

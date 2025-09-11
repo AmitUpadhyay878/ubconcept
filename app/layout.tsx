@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 import JsonLd from "./json-ld"
+import Script from "next/script"
 
 // Optimize font loading
 const inter = Inter({
@@ -76,7 +77,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
-      
+      <head>
+        <link
+          rel="preload"
+          href={`https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap`}
+          as="style"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={`${inter.className} min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02]`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <JsonLd />
@@ -86,6 +104,21 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <Script
+          id="font-optimization"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Font optimization
+              (function() {
+                const fonts = document.querySelectorAll('link[as="font"]');
+                fonts.forEach(font => {
+                  font.setAttribute('crossorigin', 'anonymous');
+                });
+              })();
+            `,
+          }}
+        />
       </body>
     </html>
   )

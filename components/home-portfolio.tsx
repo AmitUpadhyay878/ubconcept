@@ -65,7 +65,7 @@ export default function HomePortfolio() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {topProjects.map((project) => (
+          {topProjects.map((project,index) => (
             <div
               key={project.id}
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden transition-all hover:transform hover:scale-[1.02] hover:shadow-lg"
@@ -76,6 +76,8 @@ export default function HomePortfolio() {
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     fill
+                    priority={index === 0}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform hover:scale-110 duration-500"
                   />
                 ) : (
