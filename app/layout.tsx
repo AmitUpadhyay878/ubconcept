@@ -7,6 +7,7 @@ import Footer from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 import JsonLd from "./json-ld"
 import Script from "next/script"
+import { Analytics } from "@vercel/analytics/next"
 
 // Optimize font loading
 const inter = Inter({
@@ -94,6 +95,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        <Analytics />
       </head>
       <body className={`${inter.className} min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02]`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
