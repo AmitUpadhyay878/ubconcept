@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   publisher: "UBConcept",
   category: "about-us",
   verification: {
-    google: "google-site-verification=google.html",
+google: "google-site-verification=google2f44b44c882c1b38.html",
   },
   openGraph: {
     title: "About Us | UBConcept",

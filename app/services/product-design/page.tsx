@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   publisher: "UBConcept",
   category: "Product Design",
   verification: {
-    google: "google-site-verification=google.html",
+   google: "google-site-verification=google2f44b44c882c1b38.html",
   },
   openGraph: {
     title: "Product Design Services | UBConcept",

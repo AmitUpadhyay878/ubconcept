@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   category: "Market Research",
 
   verification: {
-    google: "google-site-verification=google.html",
+  google: "google-site-verification=google2f44b44c882c1b38.html",
   },
   openGraph: {
     title: "Market Research Services | UBConcept",
