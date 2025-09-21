@@ -73,13 +73,13 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link href="/contact-us">
-              <Button size="lg" className="bg-blue-700 hover:bg-blue-800 text-white px-8">
+              <Button aria-label="Contact Us" size="lg" className="bg-blue-700 hover:bg-blue-800 text-white px-8">
                 <Mail className="mr-2 h-5 w-5" />
                 Contact Us
               </Button>
             </Link>
             <Link href="/portfolio">
-              <Button size="lg" variant="outline" className="text-white border-amber-500 hover:bg-amber-500/20">
+              <Button aria-label="See Portfolio"  size="lg" variant="outline" className="text-white border-amber-500 hover:bg-amber-500/20">
                 <Sparkles className="mr-2 h-5 w-5" />
                 See Portfolio
               </Button>

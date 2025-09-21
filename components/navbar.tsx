@@ -151,6 +151,7 @@ export default function Navbar() {
 
         {/* Services Menu Button */}
         <button
+        aria-label="Services Menu"
           ref={servicesButtonRef}
           onClick={() => setServicesOpen(!servicesOpen)}
           className={`flex items-center hover:text-white transition-colors focus:outline-none ${
@@ -220,6 +221,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Button */}
       <Button
+      aria-label="Toggle Menu"
         variant="ghost"
         size="icon"
         className="md:hidden text-white"

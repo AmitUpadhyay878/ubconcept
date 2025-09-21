@@ -202,6 +202,7 @@ const CarouselPrevious = React.forwardRef<
 
   return (
     <Button
+    aria-label="Previous Slide"
       ref={ref}
       variant={variant}
       size={size}
@@ -231,6 +232,7 @@ const CarouselNext = React.forwardRef<
 
   return (
     <Button
+    aria-label="Next Slide"
       ref={ref}
       variant={variant}
       size={size}

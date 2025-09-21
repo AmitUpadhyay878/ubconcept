@@ -23,6 +23,7 @@ export default function BlogPostImage({
 
   return (
     <img
+    loading='lazy'
       src={imgSrc}
       alt={alt}
       className={className}

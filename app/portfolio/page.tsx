@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Portfolio | UBConcept",
   description:
     "Explore our diverse range of innovative products and projects that showcase our commitment to transforming ideas into impactful solutions.",
-  keywords: ["portfolio", "case studies", "product examples", "project showcase", "innovation examples"],
+  keywords: ["portfolio", "case studies", "product examples", "project showcase", "innovation examples","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
   robots: {
     index: true,
     follow: true,

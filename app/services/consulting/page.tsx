@@ -6,7 +6,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Product Consulting Services | UBConcept",
   description: "Expert guidance throughout your product journey, from concept to market success.",
-  keywords: ["product consulting", "innovation strategy", "product roadmap", "business growth", "expert guidance"],
+  keywords: ["product consulting", "innovation strategy", "product roadmap", "business growth", "expert guidance","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
   robots: {
     index: true,
     follow: true,

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   // Add viewport metadata for better mobile experience
   viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   // Add additional metadata for better SEO
-  keywords: ["ubconcept","UBConcept","Web Development","Web Development company","Web Development Company in Ahmedabad","product development", "innovation", "startup", "technology"],
+  keywords: ["ubconcept","UBConcept","Web Development","Web Development company","Web Development Company in Ahmedabad","product development", "innovation", "startup", "technology","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
   openGraph: {
     title: "UBConcept - Transform Your Idea into Product",
     description: "Transform innovative ideas into market-ready products with our comprehensive approach.",

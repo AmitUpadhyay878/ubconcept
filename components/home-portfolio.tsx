@@ -57,7 +57,7 @@ export default function HomePortfolio() {
           </div>
 
           <Link href="/portfolio" className="mt-4 md:mt-0">
-            <Button variant="outline" className="text-white border-amber-500 hover:bg-amber-500/20">
+            <Button  aria-label="View All Projects" variant="outline" className="text-white border-amber-500 hover:bg-amber-500/20">
               View All Projects
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -82,6 +82,7 @@ export default function HomePortfolio() {
                   />
                 ) : (
                   <img
+                  loading="lazy"
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform hover:scale-110 duration-500"
@@ -114,7 +115,7 @@ export default function HomePortfolio() {
 
                 {project.link && (
                   <Link href={project.link} passHref target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className="w-full text-white border-amber-500 hover:bg-amber-500/20">
+                    <Button  aria-label="View Project" variant="outline" className="w-full text-white border-amber-500 hover:bg-amber-500/20">
                       <ExternalLink className="h-4 w-4 mr-2" />
                       View Project
                     </Button>

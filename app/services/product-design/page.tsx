@@ -6,7 +6,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Product Design Services | UBConcept",
   description: "User-centered design solutions that transform ideas into innovative, market-ready products. Our expert team delivers exceptional product experiences.",
-  keywords: ["product design", "user experience", "UI/UX", "industrial design", "concept development"],
+  keywords: ["product design", "user experience", "UI/UX", "industrial design", "concept development","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
   robots: {
     index: true,
     follow: true,

@@ -16,6 +16,7 @@ export function Pagination({ total, pageSize, currentPage, onPageChange }: Pagin
   return (
     <nav className="flex items-center justify-center space-x-2">
       <button
+      aria-label="Previous Page"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
         className="px-3 py-1 rounded-md text-sm font-medium text-gray-700 bg-white border border-gray-300 
@@ -26,6 +27,7 @@ export function Pagination({ total, pageSize, currentPage, onPageChange }: Pagin
       
       {pages.map((page) => (
         <button
+        aria-label={'Go to page ' + page}
           key={page}
           onClick={() => onPageChange(page)}
           className={`px-3 py-1 rounded-md text-sm font-medium 
@@ -39,6 +41,7 @@ export function Pagination({ total, pageSize, currentPage, onPageChange }: Pagin
       ))}
       
       <button
+      aria-label="Next Page"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         className="px-3 py-1 rounded-md text-sm font-medium text-gray-700 bg-white border border-gray-300 

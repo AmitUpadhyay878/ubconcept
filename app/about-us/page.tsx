@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "About Us | UBConcept",
   description:
     "Learn about UBConcept, a forward-thinking product development studio dedicated to transforming innovative ideas into market-ready products.",
-  keywords: ["about UBConcept", "product development team", "innovation studio", "our mission", "our values"],
+  keywords: ["about UBConcept", "product development team", "innovation studio", "our mission", "our values","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
   robots: {
     index: true,
     follow: true,

@@ -27,7 +27,7 @@ export default function HomeAbout() {
             </p>
 
             <Link href="/about-us">
-              <Button variant="outline" className="text-white border-amber-500 hover:bg-amber-500/20">
+              <Button aria-label="Learn More About Us" variant="outline" className="text-white border-amber-500 hover:bg-amber-500/20">
                 Learn More About Us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Contact Us | UBConcept",
   description:
     "Get in touch with UBConcept to discuss your product development needs and transform your ideas into reality.",
-  keywords: ["contact UBConcept", "product development inquiry", "get in touch", "project consultation"],
+  keywords: ["contact UBConcept","UBConcept contact", "contact","product development inquiry", "get in touch", "project consultation","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
   robots: {
     index: true,
     follow: true,

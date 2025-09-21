@@ -7,7 +7,7 @@ import BlogPostImage from "@/components/blog-post-image"
 export const metadata: Metadata = {
   title: "Blog | UBConcept",
   description: "Latest insights on product development, design trends, and innovation",
-  keywords: ["product development blog", "design trends", "innovation insights", "industry news", "UBConcept blog"],
+  keywords: ["product development blog", "design trends", "innovation insights", "industry news", "UBConcept blog","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
   robots: {
     index: true,
     follow: true,

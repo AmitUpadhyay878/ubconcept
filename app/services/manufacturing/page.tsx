@@ -6,7 +6,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Manufacturing Solutions | UBConcept",
   description: "End-to-end manufacturing services to transform your prototypes into market-ready products at scale.",
-  keywords: ["manufacturing", "production", "scaling", "supply chain", "quality control"],
+  keywords: ["manufacturing", "production", "scaling", "supply chain", "quality control","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
   robots: {
     index: true,
     follow: true,

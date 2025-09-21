@@ -6,7 +6,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Prototyping Services | UBConcept",
   description: "Rapidly transform concepts into functional prototypes to validate ideas and accelerate development.",
-  keywords: ["prototyping", "rapid prototyping", "3D printing", "functional prototypes", "product validation"],
+  keywords: ["prototyping", "rapid prototyping", "3D printing", "functional prototypes", "product validation","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
   robots: {
     index: true,
     follow: true,

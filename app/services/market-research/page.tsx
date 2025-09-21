@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Market Research Services | UBConcept",
   description:
     "In-depth market analysis and competitive research to inform your product strategy and maximize market potential.",
-  keywords: ["market research", "competitive analysis", "market trends", "consumer insights", "product strategy"],
+  keywords: ["market research", "competitive analysis", "market trends", "consumer insights", "product strategy","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
    robots: {
     index: true,
     follow: true,

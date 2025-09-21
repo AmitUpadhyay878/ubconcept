@@ -98,6 +98,7 @@ export default function Testimonials() {
                       <AvatarFallback name={testimonials[currentIndex].name} className="w-full h-full" />
                     ) : (
                       <img
+                      loading="lazy"
                         src={ testimonials[currentIndex].image || "/placeholder.svg"}
                         alt={testimonials[currentIndex].name}
                         className="w-full h-full object-cover"
@@ -117,6 +118,7 @@ export default function Testimonials() {
 
           <div className="flex justify-center mt-8 space-x-4">
             <Button
+            aria-label="Previous Testimonial"
               variant="outline"
               size="icon"
               onClick={prevTestimonial}
@@ -126,6 +128,7 @@ export default function Testimonials() {
             </Button>
 
             <Button
+            aria-label="Next Testimonial"
               variant="outline"
               size="icon"
               onClick={nextTestimonial}
