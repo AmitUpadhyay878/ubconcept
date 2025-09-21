@@ -106,7 +106,7 @@ export default function Testimonials() {
                       />
                     )}
                   </div>
-
+                    <h3></h3>
                   <h4 className="text-white font-semibold text-lg">{testimonials[currentIndex].name}</h4>
                   <p className="text-amber-400">
                     {testimonials[currentIndex].position}, {testimonials[currentIndex].company}
