@@ -96,7 +96,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <Analytics />
+        <Analytics /> 
          <GoogleTagManager gtmId="GTM-MXKW5S5C" />
           <GoogleAnalytics gaId="G-CHSKCQSRS6" />
 
