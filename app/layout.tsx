@@ -97,9 +97,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <Analytics /> 
-        
          <GoogleTagManager gtmId="GTM-MXKW5S5C" />
-
           <GoogleAnalytics gaId="G-CHSKCQSRS6" />
 
       </head>
