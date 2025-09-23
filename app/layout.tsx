@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import JsonLd from "./json-ld"
 import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
+import { GoogleTagManager } from '@next/third-parties/google'
 
 // Optimize font loading
 const inter = Inter({
@@ -96,6 +97,8 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <Analytics />
+         <GoogleTagManager gtmId="GTM-MXKW5S5C" />
+
       </head>
       <body className={`${inter.className} min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02]`}>
         <ThemeProvider attribute="class" defaultTheme="dark">
