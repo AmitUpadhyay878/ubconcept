@@ -51,7 +51,7 @@ const Sitemap = () => {
                   </Link>
                 ) : (
                   <h2 className="text-xl sm:text-2xl font-light text-white">
-                    {route.name}
+                    {route.name} 
                   </h2>
                 )}
                 
