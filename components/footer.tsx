@@ -1,7 +1,7 @@
-'use client'
-import Link from "next/link"
-import { Lightbulb, Mail, Phone, MapPin } from "lucide-react"
-import { usePathname } from "next/navigation"
+"use client";
+import Link from "next/link";
+import { Lightbulb, Mail, Phone, MapPin } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 // Define services for the footer
 const services = [
@@ -10,10 +10,10 @@ const services = [
   { title: "Manufacturing", href: "/services/manufacturing" },
   { title: "Market Research", href: "/services/market-research" },
   { title: "Consulting", href: "/services/consulting" },
-]
+];
 
 export default function Footer() {
-  const pathname = usePathname() 
+  const pathname = usePathname();
   return (
     <footer className="bg-black/[0.98] border-t border-white/10">
       <div className="container mx-auto px-6 py-12">
@@ -28,68 +28,113 @@ export default function Footer() {
               <span className="text-white font-medium text-xl">UBConcept</span>
             </Link>
             <p className="text-gray-400 mb-6">
-              Transforming innovative ideas into market-ready products with our comprehensive approach to product
-              development.
+              Transforming innovative ideas into market-ready products with our
+              comprehensive approach to product development.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="flex flex-col">
-            <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
+            <h3 className="text-white font-semibold text-lg mb-4">
+              Quick Links
+            </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/" className={`text-gray-400 hover:text-amber-400 transition-colors
+                <Link
+                  href="/"
+                  className={`text-gray-400 hover:text-amber-400 transition-colors
                   ${
                     pathname === "/"
                       ? "text-amber-600 bg-white/10 font-semibold"
                       : "text-gray-300"
                   }
-                  `}>
+                  `}
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about-us" className={`text-gray-400 hover:text-amber-400 transition-colors
+                <Link
+                  href="/about-us"
+                  className={`text-gray-400 hover:text-amber-400 transition-colors
                   ${
                     pathname === "/about-us"
                       ? "text-amber-600 bg-white/10 font-semibold"
                       : "text-gray-300"
                   }
-                  `}>
+                  `}
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio" className={`text-gray-400 hover:text-amber-400 transition-colors
+                <Link
+                  href="/portfolio"
+                  className={`text-gray-400 hover:text-amber-400 transition-colors
                   ${
                     pathname === "/portfolio"
                       ? "text-amber-600 bg-white/10 font-semibold"
                       : "text-gray-300"
                   }
-                  `}>
+                  `}
+                >
                   Portfolio
                 </Link>
               </li>
               <li>
-                <Link href="/blogs" className={`text-gray-400 hover:text-amber-400 transition-colors
+                <Link
+                  href="/blogs"
+                  className={`text-gray-400 hover:text-amber-400 transition-colors
                   ${
                     pathname === "/blogs"
                       ? "text-amber-600 bg-white/10 font-semibold"
                       : "text-gray-300"
                   }
-                  `}>
+                  `}
+                >
                   Blogs
                 </Link>
               </li>
               <li>
-                <Link href="/contact-us" className={`text-gray-400 hover:text-amber-400 transition-colors
+                <Link
+                  href="/contact-us"
+                  className={`text-gray-400 hover:text-amber-400 transition-colors
                   ${
                     pathname === "/contact-us"
                       ? "text-amber-600 bg-white/10 font-semibold"
                       : "text-gray-300"
                   }
-                  `}>
+                  `}
+                >
                   Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy-policy"
+                  className={`text-gray-400 hover:text-amber-400 transition-colors
+                  ${
+                    pathname === "/privacy-policy"
+                      ? "text-amber-600 bg-white/10 font-semibold"
+                      : "text-gray-300"
+                  }
+                  `}
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/sitemap"
+                  className={`text-gray-400 hover:text-amber-400 transition-colors
+                  ${
+                    pathname === "/sitemap"
+                      ? "text-amber-600 bg-white/10 font-semibold"
+                      : "text-gray-300"
+                  }
+                  `}
+                >
+                  Sitemap
                 </Link>
               </li>
             </ul>
@@ -101,11 +146,16 @@ export default function Footer() {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <Link href={service.href} className={`text-gray-400 hover:text-amber-400 transition-colors
+                  <Link
+                    href={service.href}
+                    className={`text-gray-400 hover:text-amber-400 transition-colors
                     ${
-                      pathname === service.href ? "text-amber-600 bg-white/10 font-semibold" : ""
+                      pathname === service.href
+                        ? "text-amber-600 bg-white/10 font-semibold"
+                        : ""
                     }
-                    `}>
+                    `}
+                  >
                     {service.title}
                   </Link>
                 </li>
@@ -115,7 +165,9 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="flex flex-col">
-            <h3 className="text-white font-semibold text-lg mb-4">Contact Us</h3>
+            <h3 className="text-white font-semibold text-lg mb-4">
+              Contact Us
+            </h3>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Mail className="h-5 w-5 text-amber-400 mr-3 mt-0.5" />
@@ -142,9 +194,11 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 text-center">
-          <p className="text-gray-500">© {new Date().getFullYear()} UBConcept. All rights reserved.</p>
+          <p className="text-gray-500">
+            © {new Date().getFullYear()} UBConcept. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

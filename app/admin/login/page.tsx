@@ -1,9 +1,10 @@
 import React from 'react'
+import AdminLoginForm from '@/components/AdminLoginForm'
 
 const Login = () => {
   return (
     <div>
-      Login Page
+      <AdminLoginForm />
     </div>
   )
 }
