@@ -90,3 +90,18 @@ export const getWebpageData = (url: string, title: string, description: string) 
     "description": description
   }
 }
+
+export const getFaqData = (faqs: Array<{ question: string; answer: string }>) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  }
+}

@@ -2,6 +2,8 @@ import { Lightbulb, Zap, Users, PenTool, Layers, ArrowRight } from "lucide-react
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import type { Metadata } from "next"
+import Faqs from "@/components/Faqs"
+import { ProductDesignFAQs } from "@/data/FAQsData"
 
 export const metadata: Metadata = {
   title: "Product Design Services | UBConcept",
@@ -60,6 +62,7 @@ export const metadata: Metadata = {
 }
 
 export default function ProductDesignPage() {
+
   return (
     <div className="container mx-auto px-6 py-16">
       <div className="max-w-4xl mx-auto">
@@ -204,6 +207,12 @@ export default function ProductDesignPage() {
             </li>
           </ul>
         </div>
+
+        <Faqs 
+        title="FAQs"
+        description="Here’s a set of FAQs to help you discover more about UBConcept"
+        faqs={ProductDesignFAQs}
+      />
 
         {/* CTA */}
         <div className="text-center">

@@ -2,6 +2,8 @@ import { Layers, Zap, Code, Cpu, Hammer, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import type { Metadata } from "next"
+import Faqs from "@/components/Faqs"
+import { PrototypingFAQs } from "@/data/FAQsData"
 
 export const metadata: Metadata = {
   title: "Prototyping Services | UBConcept",
@@ -208,6 +210,12 @@ export default function PrototypingPage() {
             </li>
           </ul>
         </div>
+
+        <Faqs
+        title="FAQs"
+        description="Here’s a set of FAQs to help you discover more about UBConcept"
+        faqs={PrototypingFAQs}
+      />
 
         {/* CTA */}
         <div className="text-center">
