@@ -4,6 +4,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import Faqs from "@/components/Faqs"
 import { ConsultingFAQs } from "@/data/FAQsData"
+import { getFaqData, getWebpageData } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Product Consulting Services | UBConcept",
@@ -65,6 +66,22 @@ export default function ConsultingPage() {
 
   return (
     <div className="container mx-auto px-6 py-16">
+       <script
+                    id="Consulting-FAQs-json-ld"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                      __html: JSON.stringify({
+                        "@graph": [
+                          getWebpageData(
+                            "https://ubconcept.vercel.app/",
+                            "UBConcept - Transform Your Idea into Product",
+                            "UBConcept helps transform innovative ideas into market-ready products with our comprehensive approach to product development."
+                          ),
+                          getFaqData(ConsultingFAQs),
+                        ],
+                      }),
+                    }}
+                  />
       <div className="max-w-4xl mx-auto">
         <div className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">

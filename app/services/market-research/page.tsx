@@ -1,16 +1,31 @@
-import { BarChart, Zap, Search, Target, LineChart, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import type { Metadata } from "next"
-import Faqs from "@/components/Faqs"
-import { MarketResearchFAQs } from "@/data/FAQsData"
+import {
+  BarChart,
+  Zap,
+  Search,
+  Target,
+  LineChart,
+  ArrowRight,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import type { Metadata } from "next";
+import Faqs from "@/components/Faqs";
+import { MarketResearchFAQs } from "@/data/FAQsData";
+import { getFaqData, getWebpageData } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Market Research Services | UBConcept",
   description:
     "In-depth market analysis and competitive research to inform your product strategy and maximize market potential.",
-  keywords: ["market research", "competitive analysis", "market trends", "consumer insights", "product strategy","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
-   robots: {
+  keywords: [
+    "market research",
+    "competitive analysis",
+    "market trends",
+    "consumer insights",
+    "product strategy",
+    "Transforming innovative ideas into market-ready products with our comprehensive approach to product development.",
+  ],
+  robots: {
     index: true,
     follow: true,
     googleBot: {
@@ -23,7 +38,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://ubconcept.vercel.app/services/market-research",
-
   },
   authors: [
     {
@@ -35,7 +49,7 @@ export const metadata: Metadata = {
   category: "Market Research",
 
   verification: {
-  google: "google-site-verification=google2f44b44c882c1b38.html",
+    google: "google-site-verification=google2f44b44c882c1b38.html",
   },
   openGraph: {
     title: "Market Research Services | UBConcept",
@@ -48,7 +62,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Market Research Services | UBConcept",
-    description: "In-depth market analysis and competitive research to inform your product strategy."
+    description:
+      "In-depth market analysis and competitive research to inform your product strategy.",
   },
   metadataBase: new URL("https://ubconcept.vercel.app"),
   icons: {
@@ -62,22 +77,38 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
     title: "UBConcept",
   },
-}
-
+};
 
 export default function MarketResearchPage() {
-
   return (
     <div className="container mx-auto px-6 py-16">
+      <script
+        id="MarketResearch-FAQs-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@graph": [
+              getWebpageData(
+                "https://ubconcept.vercel.app/",
+                "UBConcept - Transform Your Idea into Product",
+                "UBConcept helps transform innovative ideas into market-ready products with our comprehensive approach to product development."
+              ),
+              getFaqData(MarketResearchFAQs),
+            ],
+          }),
+        }}
+      />
       <div className="max-w-4xl mx-auto">
         <div className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Market{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-amber-500">Research</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-amber-500">
+              Research
+            </span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            In-depth market analysis and competitive research to inform your product strategy and maximize market
-            potential.
+            In-depth market analysis and competitive research to inform your
+            product strategy and maximize market potential.
           </p>
         </div>
 
@@ -91,32 +122,43 @@ export default function MarketResearchPage() {
 
         {/* Main Content */}
         <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">Data-Driven Insights</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            Data-Driven Insights
+          </h2>
           <p className="text-gray-300 mb-6">
-            At UBConcept, we believe that successful products are built on a foundation of thorough market research. Our
-            comprehensive research services provide you with the insights needed to make informed decisions about your
-            product strategy, target audience, and competitive positioning.
+            At UBConcept, we believe that successful products are built on a
+            foundation of thorough market research. Our comprehensive research
+            services provide you with the insights needed to make informed
+            decisions about your product strategy, target audience, and
+            competitive positioning.
           </p>
           <p className="text-gray-300">
-            We combine qualitative and quantitative research methodologies to deliver actionable insights that reduce
-            risk and increase the likelihood of market success. Our research is tailored to your specific industry,
-            product category, and business objectives.
+            We combine qualitative and quantitative research methodologies to
+            deliver actionable insights that reduce risk and increase the
+            likelihood of market success. Our research is tailored to your
+            specific industry, product category, and business objectives.
           </p>
         </div>
 
         {/* Research Services */}
-        <h2 className="text-2xl font-bold text-white mb-6">Our Research Services</h2>
+        <h2 className="text-2xl font-bold text-white mb-6">
+          Our Research Services
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 transition-all hover:bg-white/10">
             <div className="flex items-center mb-4">
               <div className="bg-blue-700/20 p-3 rounded-lg mr-4">
                 <Search className="h-6 w-6 text-amber-400" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Market Analysis</h3>
+              <h3 className="text-xl font-semibold text-white">
+                Market Analysis
+              </h3>
             </div>
             <p className="text-gray-300">
-              We analyze market size, growth trends, and dynamics to identify opportunities and challenges for your
-              product. This includes segmentation analysis to pinpoint the most promising market segments.
+              We analyze market size, growth trends, and dynamics to identify
+              opportunities and challenges for your product. This includes
+              segmentation analysis to pinpoint the most promising market
+              segments.
             </p>
           </div>
 
@@ -125,11 +167,14 @@ export default function MarketResearchPage() {
               <div className="bg-blue-700/20 p-3 rounded-lg mr-4">
                 <Target className="h-6 w-6 text-amber-400" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Customer Research</h3>
+              <h3 className="text-xl font-semibold text-white">
+                Customer Research
+              </h3>
             </div>
             <p className="text-gray-300">
-              We conduct in-depth research to understand your target customers' needs, preferences, behaviors, and pain
-              points. This includes surveys, interviews, focus groups, and user testing.
+              We conduct in-depth research to understand your target customers'
+              needs, preferences, behaviors, and pain points. This includes
+              surveys, interviews, focus groups, and user testing.
             </p>
           </div>
 
@@ -138,11 +183,14 @@ export default function MarketResearchPage() {
               <div className="bg-blue-700/20 p-3 rounded-lg mr-4">
                 <BarChart className="h-6 w-6 text-amber-400" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Competitive Analysis</h3>
+              <h3 className="text-xl font-semibold text-white">
+                Competitive Analysis
+              </h3>
             </div>
             <p className="text-gray-300">
-              We analyze your competitors' products, strategies, strengths, and weaknesses to identify opportunities for
-              differentiation and competitive advantage in the marketplace.
+              We analyze your competitors' products, strategies, strengths, and
+              weaknesses to identify opportunities for differentiation and
+              competitive advantage in the marketplace.
             </p>
           </div>
 
@@ -151,28 +199,36 @@ export default function MarketResearchPage() {
               <div className="bg-blue-700/20 p-3 rounded-lg mr-4">
                 <LineChart className="h-6 w-6 text-amber-400" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Trend Analysis</h3>
+              <h3 className="text-xl font-semibold text-white">
+                Trend Analysis
+              </h3>
             </div>
             <p className="text-gray-300">
-              We identify and analyze emerging trends in technology, consumer behavior, and industry developments that
-              could impact your product's success and longevity in the market.
+              We identify and analyze emerging trends in technology, consumer
+              behavior, and industry developments that could impact your
+              product's success and longevity in the market.
             </p>
           </div>
         </div>
 
         {/* Benefits */}
         <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">Benefits of Our Market Research</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">
+            Benefits of Our Market Research
+          </h2>
           <ul className="space-y-4">
             <li className="flex items-start">
               <div className="bg-blue-700/20 p-2 rounded-lg mr-4 mt-1">
                 <Zap className="h-4 w-4 text-amber-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">Reduced Risk</h3>
+                <h3 className="text-lg font-semibold text-white">
+                  Reduced Risk
+                </h3>
                 <p className="text-gray-300">
-                  Thorough market research minimizes the risk of product failure by ensuring your product meets real
-                  market needs and has a viable target audience.
+                  Thorough market research minimizes the risk of product failure
+                  by ensuring your product meets real market needs and has a
+                  viable target audience.
                 </p>
               </div>
             </li>
@@ -181,10 +237,13 @@ export default function MarketResearchPage() {
                 <Zap className="h-4 w-4 text-amber-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">Optimized Product-Market Fit</h3>
+                <h3 className="text-lg font-semibold text-white">
+                  Optimized Product-Market Fit
+                </h3>
                 <p className="text-gray-300">
-                  Our research helps you refine your product features and positioning to achieve the best possible fit
-                  with your target market's needs and preferences.
+                  Our research helps you refine your product features and
+                  positioning to achieve the best possible fit with your target
+                  market's needs and preferences.
                 </p>
               </div>
             </li>
@@ -193,10 +252,13 @@ export default function MarketResearchPage() {
                 <Zap className="h-4 w-4 text-amber-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">Strategic Decision Making</h3>
+                <h3 className="text-lg font-semibold text-white">
+                  Strategic Decision Making
+                </h3>
                 <p className="text-gray-300">
-                  Data-driven insights enable you to make informed decisions about product development, pricing,
-                  marketing, and go-to-market strategies.
+                  Data-driven insights enable you to make informed decisions
+                  about product development, pricing, marketing, and
+                  go-to-market strategies.
                 </p>
               </div>
             </li>
@@ -205,28 +267,33 @@ export default function MarketResearchPage() {
                 <Zap className="h-4 w-4 text-amber-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">Competitive Advantage</h3>
+                <h3 className="text-lg font-semibold text-white">
+                  Competitive Advantage
+                </h3>
                 <p className="text-gray-300">
-                  Understanding the competitive landscape helps you identify gaps and opportunities to differentiate
-                  your product and gain a competitive edge.
+                  Understanding the competitive landscape helps you identify
+                  gaps and opportunities to differentiate your product and gain
+                  a competitive edge.
                 </p>
               </div>
             </li>
           </ul>
         </div>
 
-        <Faqs 
-        title="FAQs"
-        description="Here’s a set of FAQs to help you discover more about UBConcept"
-        faqs={MarketResearchFAQs}
-      />
+        <Faqs
+          title="FAQs"
+          description="Here’s a set of FAQs to help you discover more about UBConcept"
+          faqs={MarketResearchFAQs}
+        />
 
         {/* CTA */}
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Ready to Research Your Market?</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            Ready to Research Your Market?
+          </h2>
           <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Let's uncover the insights you need to develop a successful product strategy and maximize your market
-            potential.
+            Let's uncover the insights you need to develop a successful product
+            strategy and maximize your market potential.
           </p>
           <Link href="/contact-us">
             <Button className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-6">
@@ -237,5 +304,5 @@ export default function MarketResearchPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

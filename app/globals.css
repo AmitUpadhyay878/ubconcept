@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --background: 222.2 84% 4.9%;
   --foreground: 210 40% 98%;
   --card: 222.2 84% 4.9%;
@@ -23,21 +23,20 @@
   --input: 217.2 32.6% 17.5%;
   --ring: 224.3 76.3% 48%;
 
-  /* Add custom chart colors for blue/gold theme */
   --chart-1: 224.3 76.3% 48%;
   --chart-2: 43 96% 58%;
-}
+} */
 
 /* Optimize background grid rendering */
-.bg-grid-white\/\[0\.02\] {
+/* .bg-grid-white\/\[0\.02\] {
   background-size: 30px 30px;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  will-change: transform; /* Hint to browser for optimization */
-  backface-visibility: hidden; /* Reduce composite layers */
-}
+  will-change: transform; 
+  backface-visibility: hidden; 
+} */
 
-@keyframes float {
+/* @keyframes float {
   0% {
     transform: translateY(0px);
   }
@@ -51,22 +50,22 @@
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
-  will-change: transform; /* Optimize animation performance */
-}
+  will-change: transform; 
+} */
 
 /* Add content-visibility for better rendering performance */
-.cv-auto {
+/* .cv-auto {
   content-visibility: auto;
-}
+} */
 
 /* Add explicit width/height to reduce layout shifts */
-img {
+/* img {
   height: auto;
   max-width: 100%;
-}
+} */
 
 /* Optimize animations for reduced motion if user prefers it */
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
   ::after {
@@ -75,35 +74,35 @@ img {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
+} */
 
 /* Add layer hints for browser rendering optimization */
-.transform,
+/* .transform,
 .animate-float,
 .motion-safe\:animate-float {
   will-change: transform;
-}
+} */
 
 /* Add explicit height to common components to reduce CLS */
-.h-hero {
+/* .h-hero {
   min-height: calc(100vh - 76px);
-}
+} */
 
 /* Fix horizontal scroll issue */
-html,
+/* html,
 body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
-}
+} */
 
 /* Ensure all content stays within viewport */
-* {
+/* * {
   box-sizing: border-box;
   max-width: 100%;
-}
+} */
 
 /* Fix for potential overflow issues in flex containers */
-.flex {
+/* .flex {
   max-width: 100%;
-}
+} */
