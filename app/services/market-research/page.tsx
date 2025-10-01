@@ -82,7 +82,7 @@ export const metadata: Metadata = {
 export default function MarketResearchPage() {
   return (
     <div className="container mx-auto px-6 py-16">
-      <script
+      <script async
         id="MarketResearch-FAQs-json-ld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{

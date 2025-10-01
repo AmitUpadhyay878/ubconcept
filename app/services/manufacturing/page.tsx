@@ -65,7 +65,7 @@ export default function ManufacturingPage() {
 
   return (
     <div className="container mx-auto px-6 py-16">
-       <script
+       <script async
               id="Manufacturing-FAQs-json-ld"
               type="application/ld+json"
               dangerouslySetInnerHTML={{

@@ -1,15 +1,23 @@
-import { Layers, Zap, Code, Cpu, Hammer, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import type { Metadata } from "next"
-import Faqs from "@/components/Faqs"
-import { PrototypingFAQs } from "@/data/FAQsData"
-import { getFaqData, getWebpageData } from "@/lib/structured-data"
+import { Layers, Zap, Code, Cpu, Hammer, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import type { Metadata } from "next";
+import Faqs from "@/components/Faqs";
+import { PrototypingFAQs } from "@/data/FAQsData";
+import { getFaqData, getWebpageData } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Prototyping Services | UBConcept",
-  description: "Rapidly transform concepts into functional prototypes to validate ideas and accelerate development.",
-  keywords: ["prototyping", "rapid prototyping", "3D printing", "functional prototypes", "product validation","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
+  description:
+    "Rapidly transform concepts into functional prototypes to validate ideas and accelerate development.",
+  keywords: [
+    "prototyping",
+    "rapid prototyping",
+    "3D printing",
+    "functional prototypes",
+    "product validation",
+    "Transforming innovative ideas into market-ready products with our comprehensive approach to product development.",
+  ],
   robots: {
     index: true,
     follow: true,
@@ -23,7 +31,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://ubconcept.vercel.app/services/prototyping",
-
   },
   authors: [
     {
@@ -34,11 +41,12 @@ export const metadata: Metadata = {
   publisher: "UBConcept",
   category: "Prototyping",
   verification: {
-   google: "google-site-verification=google2f44b44c882c1b38.html",
+    google: "google-site-verification=google2f44b44c882c1b38.html",
   },
   openGraph: {
     title: "Prototyping Services | UBConcept",
-    description: "Rapidly transform concepts into functional prototypes to validate ideas and accelerate development.",
+    description:
+      "Rapidly transform concepts into functional prototypes to validate ideas and accelerate development.",
     type: "website",
     url: "https://ubconcept.com/services/prototyping",
     siteName: "UBConcept",
@@ -46,7 +54,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Prototyping Services | UBConcept",
-    description: "Rapidly transform concepts into functional prototypes to validate ideas and accelerate development."
+    description:
+      "Rapidly transform concepts into functional prototypes to validate ideas and accelerate development.",
   },
   metadataBase: new URL("https://ubconcept.vercel.app"),
   icons: {
@@ -60,27 +69,28 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
     title: "UBConcept",
   },
-}
+};
 
 export default function PrototypingPage() {
   return (
     <div className="container mx-auto px-6 py-16">
       <script
-              id="Prototyping-FAQs-json-ld"
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify({
-                  "@graph": [
-                    getWebpageData(
-                      "https://ubconcept.vercel.app/",
-                      "UBConcept - Transform Your Idea into Product",
-                      "UBConcept helps transform innovative ideas into market-ready products with our comprehensive approach to product development."
-                    ),
-                    getFaqData(PrototypingFAQs)
-                  ]
-                })
-              }}
-            />
+        async
+        id="Prototyping-FAQs-json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@graph": [
+              getWebpageData(
+                "https://ubconcept.vercel.app/",
+                "UBConcept - Transform Your Idea into Product",
+                "UBConcept helps transform innovative ideas into market-ready products with our comprehensive approach to product development."
+              ),
+              getFaqData(PrototypingFAQs),
+            ],
+          }),
+        }}
+      />
       <div className="max-w-4xl mx-auto">
         <div className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -90,7 +100,8 @@ export default function PrototypingPage() {
             Services
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Rapidly transform concepts into functional prototypes to validate ideas and accelerate development.
+            Rapidly transform concepts into functional prototypes to validate
+            ideas and accelerate development.
           </p>
         </div>
 
@@ -104,32 +115,43 @@ export default function PrototypingPage() {
 
         {/* Main Content */}
         <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">Rapid Prototyping Solutions</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            Rapid Prototyping Solutions
+          </h2>
           <p className="text-gray-300 mb-6">
-            At UBConcept, we specialize in creating high-quality prototypes that help validate your product concepts
-            before investing in full-scale development. Our prototyping services bridge the gap between idea and
-            implementation, allowing you to test, refine, and perfect your product vision.
+            At UBConcept, we specialize in creating high-quality prototypes that
+            help validate your product concepts before investing in full-scale
+            development. Our prototyping services bridge the gap between idea
+            and implementation, allowing you to test, refine, and perfect your
+            product vision.
           </p>
           <p className="text-gray-300">
-            Whether you need a simple proof-of-concept or a sophisticated functional prototype, our team has the
-            expertise to bring your ideas to life quickly and efficiently. We use the latest prototyping tools and
-            technologies to create realistic models that accurately represent your final product.
+            Whether you need a simple proof-of-concept or a sophisticated
+            functional prototype, our team has the expertise to bring your ideas
+            to life quickly and efficiently. We use the latest prototyping tools
+            and technologies to create realistic models that accurately
+            represent your final product.
           </p>
         </div>
 
         {/* Process */}
-        <h2 className="text-2xl font-bold text-white mb-6">Our Prototyping Process</h2>
+        <h2 className="text-2xl font-bold text-white mb-6">
+          Our Prototyping Process
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 transition-all hover:bg-white/10">
             <div className="flex items-center mb-4">
               <div className="bg-blue-700/20 p-3 rounded-lg mr-4">
                 <Layers className="h-6 w-6 text-amber-400" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Concept Development</h3>
+              <h3 className="text-xl font-semibold text-white">
+                Concept Development
+              </h3>
             </div>
             <p className="text-gray-300">
-              We work with you to refine your initial concept, identifying key features and functionality that need to
-              be validated through prototyping.
+              We work with you to refine your initial concept, identifying key
+              features and functionality that need to be validated through
+              prototyping.
             </p>
           </div>
 
@@ -138,11 +160,14 @@ export default function PrototypingPage() {
               <div className="bg-blue-700/20 p-3 rounded-lg mr-4">
                 <Code className="h-6 w-6 text-amber-400" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Prototype Design</h3>
+              <h3 className="text-xl font-semibold text-white">
+                Prototype Design
+              </h3>
             </div>
             <p className="text-gray-300">
-              Our team creates detailed designs and specifications for your prototype, ensuring it accurately represents
-              your product vision while focusing on the key aspects to be tested.
+              Our team creates detailed designs and specifications for your
+              prototype, ensuring it accurately represents your product vision
+              while focusing on the key aspects to be tested.
             </p>
           </div>
 
@@ -151,11 +176,14 @@ export default function PrototypingPage() {
               <div className="bg-blue-700/20 p-3 rounded-lg mr-4">
                 <Hammer className="h-6 w-6 text-amber-400" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Prototype Development</h3>
+              <h3 className="text-xl font-semibold text-white">
+                Prototype Development
+              </h3>
             </div>
             <p className="text-gray-300">
-              Using the appropriate technologies and materials, we build your prototype with the right level of fidelity
-              to effectively validate your concept and gather meaningful feedback.
+              Using the appropriate technologies and materials, we build your
+              prototype with the right level of fidelity to effectively validate
+              your concept and gather meaningful feedback.
             </p>
           </div>
 
@@ -164,28 +192,36 @@ export default function PrototypingPage() {
               <div className="bg-blue-700/20 p-3 rounded-lg mr-4">
                 <Cpu className="h-6 w-6 text-amber-400" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Testing & Iteration</h3>
+              <h3 className="text-xl font-semibold text-white">
+                Testing & Iteration
+              </h3>
             </div>
             <p className="text-gray-300">
-              We help you test your prototype with real users, gathering valuable feedback that informs refinements and
-              iterations to improve your product before full-scale development.
+              We help you test your prototype with real users, gathering
+              valuable feedback that informs refinements and iterations to
+              improve your product before full-scale development.
             </p>
           </div>
         </div>
 
         {/* Types of Prototypes */}
         <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">Types of Prototypes We Create</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">
+            Types of Prototypes We Create
+          </h2>
           <ul className="space-y-4">
             <li className="flex items-start">
               <div className="bg-blue-700/20 p-2 rounded-lg mr-4 mt-1">
                 <Zap className="h-4 w-4 text-amber-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">Low-Fidelity Prototypes</h3>
+                <h3 className="text-lg font-semibold text-white">
+                  Low-Fidelity Prototypes
+                </h3>
                 <p className="text-gray-300">
-                  Quick, simple representations of your product that help validate basic concepts and workflows early in
-                  the development process.
+                  Quick, simple representations of your product that help
+                  validate basic concepts and workflows early in the development
+                  process.
                 </p>
               </div>
             </li>
@@ -194,10 +230,13 @@ export default function PrototypingPage() {
                 <Zap className="h-4 w-4 text-amber-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">Interactive Prototypes</h3>
+                <h3 className="text-lg font-semibold text-white">
+                  Interactive Prototypes
+                </h3>
                 <p className="text-gray-300">
-                  Clickable, interactive models that simulate the user experience and interface of your product, perfect
-                  for testing usability and user flows.
+                  Clickable, interactive models that simulate the user
+                  experience and interface of your product, perfect for testing
+                  usability and user flows.
                 </p>
               </div>
             </li>
@@ -206,10 +245,13 @@ export default function PrototypingPage() {
                 <Zap className="h-4 w-4 text-amber-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">Functional Prototypes</h3>
+                <h3 className="text-lg font-semibold text-white">
+                  Functional Prototypes
+                </h3>
                 <p className="text-gray-300">
-                  Working models that implement core functionality of your product, allowing you to test technical
-                  feasibility and performance.
+                  Working models that implement core functionality of your
+                  product, allowing you to test technical feasibility and
+                  performance.
                 </p>
               </div>
             </li>
@@ -218,10 +260,13 @@ export default function PrototypingPage() {
                 <Zap className="h-4 w-4 text-amber-400" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">Physical Prototypes</h3>
+                <h3 className="text-lg font-semibold text-white">
+                  Physical Prototypes
+                </h3>
                 <p className="text-gray-300">
-                  3D-printed or fabricated models of physical products, allowing you to test ergonomics, form factor,
-                  and manufacturing feasibility.
+                  3D-printed or fabricated models of physical products, allowing
+                  you to test ergonomics, form factor, and manufacturing
+                  feasibility.
                 </p>
               </div>
             </li>
@@ -229,17 +274,19 @@ export default function PrototypingPage() {
         </div>
 
         <Faqs
-        title="FAQs"
-        description="Here’s a set of FAQs to help you discover more about UBConcept"
-        faqs={PrototypingFAQs}
-      />
+          title="FAQs"
+          description="Here’s a set of FAQs to help you discover more about UBConcept"
+          faqs={PrototypingFAQs}
+        />
 
         {/* CTA */}
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Ready to Prototype Your Idea?</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            Ready to Prototype Your Idea?
+          </h2>
           <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Let's bring your concept to life with a prototype that validates your vision and accelerates your product
-            development.
+            Let's bring your concept to life with a prototype that validates
+            your vision and accelerates your product development.
           </p>
           <Link href="/contact-us">
             <Button className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-6">
@@ -250,5 +297,5 @@ export default function PrototypingPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

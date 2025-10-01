@@ -66,7 +66,7 @@ export default function ProductDesignPage() {
 
   return (
     <div className="container mx-auto px-6 py-16">
-            <script
+            <script async
                     id="ProductDesign-FAQs-json-ld"
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{

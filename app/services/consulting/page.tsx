@@ -67,6 +67,7 @@ export default function ConsultingPage() {
   return (
     <div className="container mx-auto px-6 py-16">
        <script
+          async
                     id="Consulting-FAQs-json-ld"
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
