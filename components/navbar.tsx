@@ -145,7 +145,9 @@ export default function Navbar() {
 			<div className="hidden lg:flex items-center space-x-10">
 				<Link
 					href="/about-us"
-					className="text-white hover:to-amber-500 transition-colors text-base font-medium"
+					className={`hover:text-amber-400 transition-colors ${
+                    pathname.includes("/about-us") ? "text-amber-400 font-semibold" : "text-white font-medium"
+                  }`}
 				>
 					About Us
 				</Link>
@@ -165,14 +167,18 @@ export default function Navbar() {
 
 				<Link
 					href="/portfolio"
-					className="text-white hover:to-amber-600 transition-colors text-base font-medium"
+					className={`hover:text-amber-400 transition-colors ${
+                    pathname.includes("/portfolio") ? "text-amber-400 font-semibold" : "text-white font-medium"
+                  }`}
 				>
 					Portfolio
 				</Link>
 
         <Link
 					href="/blogs"
-					className="text-white hover:to-amber-600 transition-colors text-base font-medium"
+					className={`hover:text-amber-400 transition-colors ${
+                    pathname.includes("/blogs") ? "text-amber-400 font-semibold" : "text-white font-medium"
+                  }`}
 				>
 					Blogs
 				</Link>

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Lightbulb, Mail, Phone, MapPin } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 // Define services for the footer
 const services = [
@@ -21,12 +22,18 @@ export default function Footer() {
           {/* Company Info */}
           <div className="md:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-6">
-              <div className="relative w-8 h-8 flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-amber-500 rounded-md transform rotate-45"></div>
-                <Lightbulb className="w-5 h-5 text-white relative z-10" />
+              <div className="relative w-10 h-10 flex items-center justify-center">
+                <motion.div
+                  initial={{ rotate: 45 }}
+                  className="absolute inset-0 bg-gradient-to-br from-blue-600 to-amber-500 rounded-xl"
+                />
+                <Lightbulb className="w-6 h-6 text-white relative z-10" />
               </div>
-              <span className="text-white font-medium text-xl">UBConcept</span>
+              <span className="text-white font-semibold text-2xl">
+                UBConcept
+              </span>
             </Link>
+
             <p className="text-gray-400 mb-6">
               Transforming innovative ideas into market-ready products with our
               comprehensive approach to product development.
@@ -42,13 +49,8 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className={`text-gray-400 hover:text-amber-400 transition-colors
-                  ${
-                    pathname === "/"
-                      ? "text-amber-600 bg-white/10 font-semibold"
-                      : "text-gray-300"
-                  }
-                  `}
+                  className={`text-gray-400 font-medium hover:text-amber-400 transition-colors`}
+                 
                 >
                   Home
                 </Link>
@@ -56,13 +58,9 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about-us"
-                  className={`text-gray-400 hover:text-amber-400 transition-colors
-                  ${
-                    pathname === "/about-us"
-                      ? "text-amber-600 bg-white/10 font-semibold"
-                      : "text-gray-300"
-                  }
-                  `}
+                  className={`hover:text-amber-400 transition-colors ${
+                    pathname.includes("/about-us") ? "text-amber-400 font-semibold" : "text-gray-400 font-semibold"
+                  }`}
                 >
                   About Us
                 </Link>
@@ -70,13 +68,9 @@ export default function Footer() {
               <li>
                 <Link
                   href="/portfolio"
-                  className={`text-gray-400 hover:text-amber-400 transition-colors
-                  ${
-                    pathname === "/portfolio"
-                      ? "text-amber-600 bg-white/10 font-semibold"
-                      : "text-gray-300"
-                  }
-                  `}
+                  className={`hover:text-amber-400 transition-colors ${
+                    pathname.includes("/portfolio") ? "text-amber-400 font-semibold" : "text-gray-400 font-semibold"
+                  }`}
                 >
                   Portfolio
                 </Link>
@@ -84,13 +78,9 @@ export default function Footer() {
               <li>
                 <Link
                   href="/blogs"
-                  className={`text-gray-400 hover:text-amber-400 transition-colors
-                  ${
-                    pathname === "/blogs"
-                      ? "text-amber-600 bg-white/10 font-semibold"
-                      : "text-gray-300"
-                  }
-                  `}
+                  className={`hover:text-amber-400 transition-colors ${
+                    pathname.includes("/blogs") ? "text-amber-400 font-semibold" : "text-gray-400 font-semibold"
+                  }`}
                 >
                   Blogs
                 </Link>
@@ -98,13 +88,9 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact-us"
-                  className={`text-gray-400 hover:text-amber-400 transition-colors
-                  ${
-                    pathname === "/contact-us"
-                      ? "text-amber-600 bg-white/10 font-semibold"
-                      : "text-gray-300"
-                  }
-                  `}
+                  className={`hover:text-amber-400 transition-colors ${
+                    pathname.includes("/contact-us") ? "text-amber-400 font-semibold" : "text-gray-400 font-semibold"
+                  }`}
                 >
                   Contact Us
                 </Link>
@@ -112,13 +98,9 @@ export default function Footer() {
               <li>
                 <Link
                   href="/privacy-policy"
-                  className={`text-gray-400 hover:text-amber-400 transition-colors
-                  ${
-                    pathname === "/privacy-policy"
-                      ? "text-amber-600 bg-white/10 font-semibold"
-                      : "text-gray-300"
-                  }
-                  `}
+                   className={`hover:text-amber-400 transition-colors ${
+                    pathname.includes("/privacy-policy") ? "text-amber-400 font-semibold" : "text-gray-400 font-semibold"
+                  }`}
                 >
                   Privacy Policy
                 </Link>
@@ -126,13 +108,9 @@ export default function Footer() {
               <li>
                 <Link
                   href="/sitemap"
-                  className={`text-gray-400 hover:text-amber-400 transition-colors
-                  ${
-                    pathname === "/sitemap"
-                      ? "text-amber-600 bg-white/10 font-semibold"
-                      : "text-gray-300"
-                  }
-                  `}
+                  className={`hover:text-amber-400 transition-colors ${
+                    pathname.includes("/sitemap") ? "text-amber-400 font-semibold" : "text-gray-400 font-semibold"
+                  }`}
                 >
                   Sitemap
                 </Link>
@@ -147,12 +125,11 @@ export default function Footer() {
               {services.map((service, index) => (
                 <li key={index}>
                   <Link
-                    href={service.href}
-                    className={`text-gray-400 hover:text-amber-400 transition-colors
+                    href={service?.href}
+                    className={`hover:text-amber-400 transition-colors
                     ${
-                      pathname === service.href
-                        ? "text-amber-600 bg-white/10 font-semibold"
-                        : ""
+                      pathname.includes(service?.href)
+                        ? "text-amber-400 font-semibold" : "text-gray-400 font-semibold"
                     }
                     `}
                   >

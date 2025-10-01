@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div>
-        <Script
+        <script
         id="UBconcept-FAQ-json-ld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
