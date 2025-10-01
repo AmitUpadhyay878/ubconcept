@@ -14,6 +14,10 @@ const nextConfig = {
   },
   trailingSlash: true,
   robotsTxt: true,
+
+   experimental: {
+    optimizeCss: true, // Enable CSS optimization
+  },
   
   async headers() {
     return [
