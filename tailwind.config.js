@@ -73,14 +73,5 @@ module.exports = {
       },
     },
   },
-   future: {
-    hoverOnlyWhenSupported: true,
-  },
-  safelist: [
-    {
-      pattern: /./, // Match all classes
-      variants: ['hover', 'focus', 'active'], // Include interactive states
-    },
-  ],
   plugins: [require("tailwindcss-animate")],
 }
