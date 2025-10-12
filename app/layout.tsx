@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import JsonLd from "./json-ld";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
-// import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 // Optimize font loading
 const inter = Inter({
@@ -110,12 +110,20 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <Analytics />
-        {/* <GoogleTagManager gtmId="GTM-MXKW5S5C" />
-        <GoogleAnalytics gaId="G-CHSKCQSRS6" /> */}
+        <GoogleTagManager gtmId="GTM-MXKW5S5C" />
+        <GoogleAnalytics gaId="G-CHSKCQSRS6" />
       </head>
       <body
         className={`${inter.className} min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02]`}
       >
+         <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MXKW5S5C"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <JsonLd />
           <div className="relative z-10 flex flex-col min-h-screen">
@@ -124,37 +132,6 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
-
-        {/* Lazy load GTM */}
-        <Script
-          id="gtm"
-          src="https://www.googletagmanager.com/gtm.js?id=GTM-MXKW5S5C"
-          strategy="lazyOnload" // load after main thread idle
-        />
-
-        {/* Fallback noscript if needed */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-MXKW5S5C"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-
-        <Script
-          id="ga-script"
-          src="https://www.googletagmanager.com/gtag/js?id=G-CHSKCQSRS6"
-          strategy="lazyOnload"
-        />
-        <Script id="ga-init" strategy="lazyOnload">
-          {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-CHSKCQSRS6', { page_path: window.location.pathname });
-  `}
-        </Script>
 
         <Script
           id="font-optimization"
