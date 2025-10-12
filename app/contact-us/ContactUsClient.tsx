@@ -1,33 +1,61 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send, AlertCircle } from "lucide-react"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { useToast } from "@/components/ui/use-toast"
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  AlertCircle,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+  Github,
+} from "lucide-react";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { useToast } from "@/components/ui/use-toast";
+import Link from "next/link";
 
 // Define form validation schema with Zod
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }).max(50),
+  name: z
+    .string()
+    .min(2, { message: "Name must be at least 2 characters" })
+    .max(50),
   email: z.string().email({ message: "Please enter a valid email address" }),
-  subject: z.string().min(5, { message: "Subject must be at least 5 characters" }).max(100),
-  message: z.string().min(10, { message: "Message must be at least 10 characters" }).max(1000),
-})
+  subject: z
+    .string()
+    .min(5, { message: "Subject must be at least 5 characters" })
+    .max(100),
+  message: z
+    .string()
+    .min(10, { message: "Message must be at least 10 characters" })
+    .max(1000),
+});
 
-type FormValues = z.infer<typeof formSchema>
+type FormValues = z.infer<typeof formSchema>;
 
 // Email recipient
-const RECIPIENT_EMAIL = "amitupadhyay878@gmail.com"
+const RECIPIENT_EMAIL = "info.ubconcept@gmail.com";
 
 export default function ContactUsClient() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
   // Properly use the toast hook at the component level
-  const { toast } = useToast()
+  const { toast } = useToast();
 
   // Initialize react-hook-form
   const form = useForm<FormValues>({
@@ -38,17 +66,17 @@ export default function ContactUsClient() {
       subject: "",
       message: "",
     },
-  })
+  });
 
   // Form submission handler
   const onSubmit = async (data: FormValues) => {
-    setIsSubmitting(true)
+    setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
@@ -59,38 +87,45 @@ export default function ContactUsClient() {
           description: `Thank you for your message! We will get back to you soon.`,
         });
         form.reset();
-        setIsSubmitting(false)
+        setIsSubmitting(false);
       } else {
         const errorData = await response.json();
         toast({
           title: "Error",
-          description: errorData.message || "There was a problem sending your message. Please try again.",
+          description:
+            errorData.message ||
+            "There was a problem sending your message. Please try again.",
           variant: "destructive",
         });
       }
     } catch (error) {
       toast({
         title: "Error",
-        description: "There was a problem sending your message. Please try again.",
+        description:
+          "There was a problem sending your message. Please try again.",
         variant: "destructive",
       });
-    }finally{
-      setIsSubmitting(false)
+    } finally {
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <div className="container mx-auto px-6 py-16">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 text-center">
           Get in{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-amber-500">Touch</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-amber-500">
+            Touch
+          </span>
         </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 mb-8">
-              <h2 className="text-2xl font-semibold text-white mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-semibold text-white mb-6">
+                Contact Information
+              </h2>
 
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -135,7 +170,9 @@ export default function ContactUsClient() {
             </div>
 
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8">
-              <h2 className="text-2xl font-semibold text-white mb-6">Business Hours</h2>
+              <h2 className="text-2xl font-semibold text-white mb-6">
+                Business Hours
+              </h2>
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-gray-300">Monday - Friday:</span>
@@ -154,10 +191,15 @@ export default function ContactUsClient() {
           </div>
 
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8">
-            <h2 className="text-2xl font-semibold text-white mb-6">Send Us a Message</h2>
+            <h2 className="text-2xl font-semibold text-white mb-6">
+              Send Us a Message
+            </h2>
 
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <FormField
                   control={form.control}
                   name="name"
@@ -173,7 +215,9 @@ export default function ContactUsClient() {
                         />
                       </FormControl>
                       <FormMessage className="text-red-400 flex items-center text-sm">
-                        {form.formState.errors.name && <AlertCircle className="h-4 w-4 mr-1" />}
+                        {form.formState.errors.name && (
+                          <AlertCircle className="h-4 w-4 mr-1" />
+                        )}
                         {form.formState.errors.name?.message}
                       </FormMessage>
                     </FormItem>
@@ -185,7 +229,9 @@ export default function ContactUsClient() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-300">Email Address</FormLabel>
+                      <FormLabel className="text-gray-300">
+                        Email Address
+                      </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
@@ -196,7 +242,9 @@ export default function ContactUsClient() {
                         />
                       </FormControl>
                       <FormMessage className="text-red-400 flex items-center text-sm">
-                        {form.formState.errors.email && <AlertCircle className="h-4 w-4 mr-1" />}
+                        {form.formState.errors.email && (
+                          <AlertCircle className="h-4 w-4 mr-1" />
+                        )}
                         {form.formState.errors.email?.message}
                       </FormMessage>
                     </FormItem>
@@ -218,7 +266,9 @@ export default function ContactUsClient() {
                         />
                       </FormControl>
                       <FormMessage className="text-red-400 flex items-center text-sm">
-                        {form.formState.errors.subject && <AlertCircle className="h-4 w-4 mr-1" />}
+                        {form.formState.errors.subject && (
+                          <AlertCircle className="h-4 w-4 mr-1" />
+                        )}
                         {form.formState.errors.subject?.message}
                       </FormMessage>
                     </FormItem>
@@ -241,7 +291,9 @@ export default function ContactUsClient() {
                         />
                       </FormControl>
                       <FormMessage className="text-red-400 flex items-center text-sm">
-                        {form.formState.errors.message && <AlertCircle className="h-4 w-4 mr-1" />}
+                        {form.formState.errors.message && (
+                          <AlertCircle className="h-4 w-4 mr-1" />
+                        )}
                         {form.formState.errors.message?.message}
                       </FormMessage>
                     </FormItem>
@@ -260,7 +312,56 @@ export default function ContactUsClient() {
             </Form>
           </div>
         </div>
+
+        {/* Move social media section above the grid */}
+        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 mb-8">
+          <h2 className="text-2xl font-semibold text-white mb-6">
+            Follow Us
+          </h2>
+          <div className="flex flex-wrap justify-center md:justify-start gap-4">
+              <Link
+              href="https://linkedin.com/company/ubconcept"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-700/20 p-3 rounded-lg hover:bg-blue-700/40 transition-colors group"
+            >
+              <Linkedin className="h-6 w-6 text-gray-300 group-hover:text-amber-400" />
+            </Link>
+             <span
+              // href="https://twitter.com/ubconcept"
+              // target="_blank"
+              // rel="noopener noreferrer"
+              className="bg-blue-700/20 p-3 rounded-lg hover:bg-blue-700/40 transition-colors group"
+            >
+              <Twitter className="h-6 w-6 text-gray-300 group-hover:text-amber-400" />
+            </span>
+            <span
+              // href="https://facebook.com/ubconcept"
+              // target="_blank"
+              // rel="noopener noreferrer"
+              className="bg-blue-700/20 p-3 rounded-lg hover:bg-blue-700/40 transition-colors group"
+            >
+              <Facebook className="h-6 w-6 text-gray-300 group-hover:text-amber-400" />
+            </span>
+            <span
+              // href="https://instagram.com/ubconcept"
+              // target="_blank"
+              // rel="noopener noreferrer"
+              className="bg-blue-700/20 p-3 rounded-lg hover:bg-blue-700/40 transition-colors group"
+            >
+              <Instagram className="h-6 w-6 text-gray-300 group-hover:text-amber-400" />
+            </span>
+            <span
+              // href="https://github.com/ubconcept"
+              // target="_blank"
+              // rel="noopener noreferrer"
+              className="bg-blue-700/20 p-3 rounded-lg hover:bg-blue-700/40 transition-colors group"
+            >
+              <Github className="h-6 w-6 text-gray-300 group-hover:text-amber-400" />
+            </span>
+          </div>
+        </div>
       </div>
     </div>
-  )
+  );
 }

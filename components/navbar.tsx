@@ -126,15 +126,15 @@ export default function Navbar() {
 		<motion.nav
 			initial={{ y: -100 }}
 			animate={{ y: 0 }}
-			className={`sticky top-0 left-0 right-0 z-[999] flex items-center justify-between px-8 py-5 transition-all duration-300 ${
+			className={`sticky top-0 left-0 right-0 z-[999] flex items-center justify-between px-8 py-2 transition-all duration-300 ${
 				scrolled ? "bg-black/90 backdrop-blur-md shadow-md" : "bg-black/80 backdrop-blur-sm"
 			}`}
 		>
 			<Link href="/" className="flex items-center space-x-3">
 				<div className="relative w-10 h-10 flex items-center justify-center">
-					<motion.div
-						initial={{ rotate: 45 }}
-						className="absolute inset-0 bg-gradient-to-br from-blue-600 to-amber-500 rounded-xl"
+					<div
+						// initial={{ rotate: 45 }}
+						className="absolute inset-0 bg-gradient-to-br from-blue-600 to-amber-500 rounded-xl rotate-45"
 					/>
 					<Lightbulb className="w-6 h-6 text-white relative z-10" />
 				</div>
@@ -221,6 +221,7 @@ export default function Navbar() {
 
 			{/* Mobile Menu Button */}
 			<Button
+				aria-label="Toggle Menu"
 				variant="ghost"
 				size="icon"
 				className="lg:hidden text-white"

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { ChevronRight } from 'lucide-react'
 
 const Sitemap = () => {
   const routes = [
@@ -15,76 +16,68 @@ const Sitemap = () => {
       ]
     },
     { path: '/blogs', name: 'Blogs' },
-    { path: '/contact-us', name: 'Contact' }
+    { path: '/contact-us', name: 'Contact' },
+     { path: '/privacy-policy', name: 'Privacy Policy' }
   ]
 
   return (
-    <main className="relative bg-black">
-      {/* Hero Section */}
-      <section className="relative py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <h1 className="font-display text-3xl font-light tracking-tight text-white sm:text-6xl">
-              Site<span className="font-medium">map</span>
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
-              Explore our complete website structure and find exactly what you're looking for
-            </p>
-          </div>
+    <div className="min-h-screen bg-black/[0.96] py-20">
+      <div className="container mx-auto px-6">
+        {/* Header */}
+        <div className="mb-12 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Site<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-amber-500">map</span>
+          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Navigate through our website structure and find exactly what you're looking for
+          </p>
         </div>
-      </section>
 
-      {/* Content Section */}
-      <section className="relative pb-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="space-y-16">
-            {routes.map((route) => (
-              <div key={route.path || route.name} 
-                className="border-t border-white/10 pt-10 first:border-none">
+        {/* Navigation Grid */}
+        <div className="max-w-4xl mx-auto space-y-6">
+          {routes.map((route) => (
+            <div 
+              key={route.path || route.name}
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden"
+            >
+              <div className="p-6">
                 {route.path ? (
                   <Link 
                     href={route.path}
-                    className="group inline-flex items-center text-xl sm:text-2xl font-light text-white"
+                    className="group flex items-center justify-between"
                   >
-                    <span className="transition group-hover:text-blue-400">{route.name}</span>
-                    <span className="ml-3 transition-transform group-hover:translate-x-1">→</span>
+                    <span className="text-xl font-medium text-white group-hover:text-amber-400 transition-colors">
+                      {route.name}
+                    </span>
+                    <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-amber-400 transition-transform group-hover:translate-x-1" />
                   </Link>
                 ) : (
-                  <h2 className="text-xl sm:text-2xl font-light text-white">
-                    {route.name} 
-                  </h2>
-                )}
-                
-                {route.subRoutes && (
-                  <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {route.subRoutes.map((subRoute) => (
-                      <Link
-                        key={subRoute.path}
-                        href={subRoute.path}
-                        className="group relative overflow-hidden rounded-3xl bg-white/[0.03] p-8 transition hover:bg-white/[0.06]"
-                      >
-                        <div className="relative z-10">
-                          <h3 className="font-display text-xl font-light text-white">
-                            {subRoute.name}
-                          </h3>
-                          <p className="mt-6 inline-flex items-center text-sm text-blue-400">
-                            Explore
-                            <span className="ml-2 transition-transform group-hover:translate-x-2">
-                              →
+                  <>
+                    <h2 className="text-xl font-medium text-white mb-4">{route.name}</h2>
+                    {route.subRoutes && (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                        {route.subRoutes.map((subRoute) => (
+                          <Link
+                            key={subRoute.path}
+                            href={subRoute.path}
+                            className="group flex items-center p-3 rounded-lg bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+                          >
+                            <span className="text-gray-300 group-hover:text-amber-400 transition-colors">
+                              {subRoute.name}
                             </span>
-                          </p>
-                        </div>
-                        <div className="absolute inset-0 bg-gradient-to-b from-blue-400/10 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                      </Link>
-                    ))}
-                  </div>
+                            <ChevronRight className="w-4 h-4 ml-auto text-gray-400 group-hover:text-amber-400 transition-transform group-hover:translate-x-1" />
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
                 )}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   )
 }
 

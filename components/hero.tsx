@@ -15,13 +15,12 @@ const DynamicFloatingPaper = dynamic(() => import("@/components/floating-paper")
 const DynamicRoboAnimation = dynamic(() => import("@/components/robo-animation").then(mod => ({ default: mod.RoboAnimation })), { ssr: true })
 
 export default function Hero() {
-  // Create a ref for the hero section
   const heroRef = useRef<HTMLDivElement>(null)
 
   return (
-    <div ref={heroRef} className="relative min-h-[calc(100vh-76px)] flex items-center pt-16">
-      {/* Sparkles background with mouse interaction - only in hero section */}
-      <div className="absolute inset-0 z-0">
+    <div ref={heroRef} className="relative min-h-[calc(100vh-76px)] flex items-center pt-16 overflow-hidden">
+      {/* Sparkles background */}
+      <div className="absolute inset-0 z-0 w-full">
         <SparklesCore
           id="tsparticlesfullpage"
           background="transparent"
@@ -30,13 +29,13 @@ export default function Hero() {
           particleDensity={100}
           className="w-full h-full"
           particleColor="#FFFFFF"
-          containerRef={heroRef} // Pass the hero ref to limit mouse tracking
+          containerRef={heroRef}
         />
       </div>
 
-      {/* Floating papers background - reduced count for better performance */}
-      <div className="absolute inset-0 overflow-hidden">
-        <DynamicFloatingPaper count={4} /> {/* Reduced from 6 to 4 */}
+      {/* Floating papers background */}
+      <div className="absolute inset-0 w-full overflow-hidden">
+        <DynamicFloatingPaper count={4} />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -45,7 +44,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-6 min-h-[60px] md:min-h-[80px] lg:min-h-[100px]" // Add explicit height to reduce CLS
+            className="mb-6 min-h-[60px] md:min-h-[80px] lg:min-h-[100px]"
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white">
               Transform Your Idea into
@@ -89,7 +88,7 @@ export default function Hero() {
       </div>
 
       {/* Animated robot - dynamically loaded */}
-      <div className="absolute bottom-0 right-0 w-96 h-96">
+      <div className="absolute bottom-0 right-0 w-96 h-96 overflow-hidden">
         <DynamicRoboAnimation />
       </div>
     </div>
