@@ -1,14 +1,14 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
-import { ThemeProvider } from "@/components/theme-provider"
-import JsonLd from "./json-ld"
-import Script from "next/script"
-import { Analytics } from "@vercel/analytics/next"
-import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
+import JsonLd from "./json-ld";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
+// import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 // Optimize font loading
 const inter = Inter({
@@ -16,7 +16,7 @@ const inter = Inter({
   display: "swap", // Use 'swap' to prevent invisible text during font loading
   preload: true,
   variable: "--font-inter", // Add variable for better CSS control
-})
+});
 
 export const metadata: Metadata = {
   title: "UBConcept - Transform Your Idea into Product",
@@ -25,10 +25,22 @@ export const metadata: Metadata = {
   // Add viewport metadata for better mobile experience
   viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   // Add additional metadata for better SEO
-  keywords: ["ubconcept","UBConcept","Web Development","Web Development company","Web Development Company in Ahmedabad","product development", "innovation", "startup", "technology","Transforming innovative ideas into market-ready products with our comprehensive approach to product development."],
+  keywords: [
+    "ubconcept",
+    "UBConcept",
+    "Web Development",
+    "Web Development company",
+    "Web Development Company in Ahmedabad",
+    "product development",
+    "innovation",
+    "startup",
+    "technology",
+    "Transforming innovative ideas into market-ready products with our comprehensive approach to product development.",
+  ],
   openGraph: {
     title: "UBConcept - Transform Your Idea into Product",
-    description: "Transform innovative ideas into market-ready products with our comprehensive approach.",
+    description:
+      "Transform innovative ideas into market-ready products with our comprehensive approach.",
     type: "website",
   },
   alternates: {
@@ -60,7 +72,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "UBConcept - Transform Your Idea into Product",
-    description: "Transform innovative ideas into market-ready products with our comprehensive approach.",
+    description:
+      "Transform innovative ideas into market-ready products with our comprehensive approach.",
     images: ["https://ubconcept.vercel.app/og-image.png"],
   },
   metadataBase: new URL("https://ubconcept.vercel.app"),
@@ -70,12 +83,12 @@ export const metadata: Metadata = {
     shortcut: "/favicon-16x16.png",
   },
   manifest: "/site.webmanifest",
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
@@ -96,12 +109,13 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <Analytics /> 
-         <GoogleTagManager gtmId="GTM-MXKW5S5C" />
-          <GoogleAnalytics gaId="G-CHSKCQSRS6" />
-
+        <Analytics />
+        {/* <GoogleTagManager gtmId="GTM-MXKW5S5C" />
+        <GoogleAnalytics gaId="G-CHSKCQSRS6" /> */}
       </head>
-      <body className={`${inter.className} min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02]`}>
+      <body
+        className={`${inter.className} min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02]`}
+      >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <JsonLd />
           <div className="relative z-10 flex flex-col min-h-screen">
@@ -110,6 +124,38 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+
+        {/* Lazy load GTM */}
+        <Script
+          id="gtm"
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-MXKW5S5C"
+          strategy="lazyOnload" // load after main thread idle
+        />
+
+        {/* Fallback noscript if needed */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MXKW5S5C"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
+        <Script
+          id="ga-script"
+          src="https://www.googletagmanager.com/gtag/js?id=G-CHSKCQSRS6"
+          strategy="lazyOnload"
+        />
+        <Script id="ga-init" strategy="lazyOnload">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CHSKCQSRS6', { page_path: window.location.pathname });
+  `}
+        </Script>
+
         <Script
           id="font-optimization"
           strategy="afterInteractive"
@@ -127,5 +173,5 @@ export default function RootLayout({
         />
       </body>
     </html>
-  )
+  );
 }
