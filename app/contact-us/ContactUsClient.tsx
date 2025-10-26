@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/form";
 import { useToast } from "@/components/ui/use-toast";
 import Link from "next/link";
+import { useRouter, useSearchParams } from 'next/navigation';
 
 // Define form validation schema with Zod
 const formSchema = z.object({
@@ -56,6 +57,7 @@ export default function ContactUsClient() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   // Properly use the toast hook at the component level
   const { toast } = useToast();
+  const router = useRouter();
 
   // Initialize react-hook-form
   const form = useForm<FormValues>({
@@ -88,6 +90,8 @@ export default function ContactUsClient() {
         });
         form.reset();
         setIsSubmitting(false);
+
+        router.push('/thank-you?from=contact');
        
       } else {
         const errorData = await response.json();
