@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { signIn } from 'next-auth/react';
+
 import { useRouter } from 'next/navigation';
 
 interface LoginFormInputs {
@@ -25,18 +25,7 @@ const AdminLoginForm = () => {
       setIsLoading(true);
       setError(null);
 
-      const result = await signIn('credentials', {
-        redirect: false,
-        email: data.email,
-        password: data.password,
-      });
-
-      if (result?.error) {
-        setError('Invalid email or password');
-        return;
-      }
-
-      router.push('/admin/dashboard');
+    
     } catch (error) {
       setError('An error occurred. Please try again.');
     } finally {

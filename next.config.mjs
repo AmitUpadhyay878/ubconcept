@@ -72,6 +72,17 @@ const nextConfig = {
       },
     ]
   },
+
+ async redirects(){
+  return [
+   {
+        source: '/thank-you',
+        has: [{ type: 'query', key: 'from', value: 'contact' }],
+        destination: '/',
+        permanent: false,
+      },
+ ]
+ }
 }
 
 export default nextConfig

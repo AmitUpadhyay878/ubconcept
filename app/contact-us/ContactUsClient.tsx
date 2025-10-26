@@ -88,6 +88,7 @@ export default function ContactUsClient() {
         });
         form.reset();
         setIsSubmitting(false);
+       
       } else {
         const errorData = await response.json();
         toast({
@@ -192,7 +193,7 @@ export default function ContactUsClient() {
 
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8">
             <h2 className="text-2xl font-semibold text-white mb-6">
-              Send Us a Message
+              Submit an Inquiry
             </h2>
 
             <Form {...form}>

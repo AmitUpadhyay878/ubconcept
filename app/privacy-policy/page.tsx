@@ -129,7 +129,7 @@ const PrivacyPolicy = () => {
             <p className="text-gray-300">
               If you have any concerns or queries regarding our Privacy Policy or how we handle your personal information, please contact us at{' '}
               <a href="mailto:info@ubconcept.com" className="text-blue-400 hover:text-blue-300">
-                info@ubconcept.com
+                info.ubconcept@gmail.com
               </a>
             </p>
           </section>
