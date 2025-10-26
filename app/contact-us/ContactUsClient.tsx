@@ -91,7 +91,7 @@ export default function ContactUsClient() {
         form.reset();
         setIsSubmitting(false);
 
-        router.push('/thank-you?from=contact');
+        // router.push('/thank-you?from=contact');
        
       } else {
         const errorData = await response.json();

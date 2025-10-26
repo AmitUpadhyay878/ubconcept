@@ -10,7 +10,7 @@ export default function ThankYouContent() {
  
    useEffect(() => {
      // Check if param 'from' is present and is 'contact'
-     if (searchParams.get('from') != 'contact') {
+     if (searchParams.get('from') !== 'contact') {
        router.replace('/');
      }
    }, []);
