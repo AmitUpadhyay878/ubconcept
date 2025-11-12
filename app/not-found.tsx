@@ -51,18 +51,6 @@ const NotFound = () => {
             </Link>
           </div>
         </div>
-
-        {/* Additional Help Text */}
-        <p className="mt-12 text-sm text-gray-400">
-          Need immediate assistance?{' '}
-          <Link 
-            href="/help" 
-            className="text-blue-400 hover:text-blue-300 font-medium underline 
-              decoration-2 underline-offset-2 hover:decoration-blue-300"
-          >
-            Visit our Help Center
-          </Link>
-        </p>
       </div>
     </div>
   );

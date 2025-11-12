@@ -34,7 +34,7 @@ const topProjects: Project[] = [
     image: "/images/tempszero.png",
     category: "File Sharing",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Encryption"],
-    link: "https://tempszero.vercel.app",
+    link: "/portfolio/tempszero",
   },
 ]
 
@@ -114,7 +114,9 @@ export default function HomePortfolio() {
                 </div>
 
                 {project.link && (
-                  <Link href={project.link} passHref target="_blank" rel="noopener noreferrer">
+                  <Link href={project.link} 
+                  // passHref target="_blank" rel="noopener noreferrer"
+                  >
                     <Button  aria-label="View Project" variant="outline" className="w-full text-white border-amber-500 hover:bg-amber-500/20">
                       <ExternalLink className="h-4 w-4 mr-2" />
                       View Project
