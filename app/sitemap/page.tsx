@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
+import path from 'path'
 
 const Sitemap = () => {
   const routes = [
@@ -13,6 +14,12 @@ const Sitemap = () => {
         { path: '/services/market-research', name: 'Market Research' },
         { path: '/services/product-design', name: 'Product Design' },
         { path: '/services/prototyping', name: 'Prototyping' },
+      ]
+    },
+    { path: '/portfolio', name: 'Portfolio', 
+      subRoutes: [
+        {path: '/portfolio/tasklooms', name: 'TaskLooms' },
+        { path: '/portfolio/tempszero', name: 'TempsZero' }
       ]
     },
     { path: '/blogs', name: 'Blogs' },

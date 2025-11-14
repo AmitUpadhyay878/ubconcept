@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/market-research',
     '/services/consulting',
     '/portfolio',
+    '/portfolio/tempszero',
+    '/portfolio/tasklooms',
     '/blogs',
     '/contact-us',
   ]

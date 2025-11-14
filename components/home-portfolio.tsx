@@ -21,17 +21,17 @@ const topProjects: Project[] = [
     title: "TaskLooms",
     description:
       "A modern task management application with user authentication, real-time updates, and collaborative features. Helps teams organize projects, track progress, and meet deadlines efficiently.",
-    image: "/images/tasklooms.png",
+    image: "/images/tasklooms2.png",
     category: "Web Application",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "OAuth"],
-    link: "https://tasklooms.vercel.app",
+    link: "/portfolio/tasklooms",
   },
   {
     id: "tempszero",
     title: "TempsZero",
     description:
       "A secure file sharing platform with end-to-end encryption. Allows users to quickly upload, share, and manage files with confidence. Features include no-account sharing, secure links, and comprehensive file management.",
-    image: "/images/tempszero.png",
+    image: "/images/tempszero2.png",
     category: "File Sharing",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Encryption"],
     link: "/portfolio/tempszero",

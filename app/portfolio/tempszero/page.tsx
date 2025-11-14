@@ -1,11 +1,12 @@
 ﻿import React from 'react'
+import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ExternalLink, Github, CheckCircle, ArrowRight, Zap, ShieldCheck, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { url } from 'inspector'
 
-export const metadata = {
+
+export const metadata:Metadata = {
   title: "TempsZero - Secure File Sharing | UBConcept Portfolio",
   description: "Explore TempsZero, our secure file sharing platform with end-to-end encryption, fast uploads, and comprehensive file management features.",
   keywords: ["TempsZero", "secure file sharing", "file upload", "end-to-end encryption", "file management", "project showcase", "portfolio", "UBConcept"],
@@ -44,19 +45,18 @@ google: "google-site-verification=google2f44b44c882c1b38.html",
     siteName: "UBConcept",
     images: [
       {
-        url: '/images/tempszero2.png', 
+        url: '/images/portfolio-og-images/tempszero2.png', 
         width: 800,
         height: 600,
       }]
   },
   twitter: {
     card: "summary_large_image",
-    url:"https://ubconcept.vercel.app/portfolio/tempszero",
     title: "tempszero - Secure File Sharing | UBConcept Portfolio",
      description:
       "Explore TempsZero, our secure file sharing platform with end-to-end encryption, fast uploads, and comprehensive file management features.",
       images: [ {
-        url: '/images/tempszero2.png', 
+        url: '/images/portfolio-og-images/tempszero2.png', 
         width: 800,
         height: 600,
       }],
