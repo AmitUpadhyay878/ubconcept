@@ -43,7 +43,7 @@ google: "google-site-verification=google2f44b44c882c1b38.html",
     siteName: "UBConcept",
     images: [
       {
-        url: '/images/portfolio-og-images/tasklooms-og.png', 
+        url: '/portfolio-og-images/tasklooms-og.png', 
         width: 800,
         height: 600,
       }]
@@ -53,7 +53,7 @@ google: "google-site-verification=google2f44b44c882c1b38.html",
      title: "TaskLooms - Collaborative Task Management | UBConcept Portfolio",
   description: "Explore TaskLooms, our powerful task management platform with real-time collaboration, advanced scheduling, and team productivity features.",
       images: [ {
-        url: '/images/portfolio-og-images/tasklooms-og.png', 
+        url: '/portfolio-og-images/tasklooms-og.png', 
         width: 800,
         height: 600,
       }],

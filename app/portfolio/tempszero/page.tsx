@@ -45,7 +45,7 @@ google: "google-site-verification=google2f44b44c882c1b38.html",
     siteName: "UBConcept",
     images: [
       {
-        url: '/images/portfolio-og-images/tempszero2.png', 
+        url: '/portfolio-og-images/tempszero-og.png', 
         width: 800,
         height: 600,
       }]
@@ -56,7 +56,7 @@ google: "google-site-verification=google2f44b44c882c1b38.html",
      description:
       "Explore TempsZero, our secure file sharing platform with end-to-end encryption, fast uploads, and comprehensive file management features.",
       images: [ {
-        url: '/images/portfolio-og-images/tempszero2.png', 
+        url: '/portfolio-og-images/tempszero-og.png', 
         width: 800,
         height: 600,
       }],
