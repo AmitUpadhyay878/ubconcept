@@ -1,12 +1,28 @@
 
+'use client';
+import { authClient } from '@/utils/auth-client';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-
-export default function Sidebar() {
+export default function Sidebar({userData}:any) {
   const menuItems = [
     { name: 'Dashboard', href: '/admin/dashboard', icon: '📊' },
     { name: 'Blog Management', href: '/admin/blog-management', icon: '📝' },
   ];
+
+
+  const handleSignOut = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          redirect('/admin/signin');
+        },
+      },
+    });
+  }
 
   return (
     <div className="flex flex-col h-full">
@@ -33,10 +49,14 @@ export default function Sidebar() {
       <div className="p-4 border-t border-gray-700">
         <form>
           <button
+            onClick={handleSignOut}
             type="submit"
-            className="w-full px-4 py-2 bg-red-600 rounded hover:bg-red-700 transition"
+            className="w-full px-8 py-2 bg-red-600 rounded hover:bg-red-700 transition"
           >
-            Sign Out
+            <div className='flex items-center justify-between'>
+
+              <img src={userData?.image} alt="session-user" width="30" height="30" className='rounded-xl mx-2' /> Sign Out
+            </div>
           </button>
         </form>
       </div>

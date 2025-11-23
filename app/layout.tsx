@@ -124,14 +124,14 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <ThemeProvider attribute="class" defaultTheme="dark">
+       <ThemeProvider attribute="class" defaultTheme="dark">
           <JsonLd />
-          <div className="relative z-10 flex flex-col min-h-screen">
-          <Navbar />
-            <main className="flex-grow pt-16">{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+           <div className="relative z-10 flex flex-col min-h-screen">
+          {/* <Navbar /> */}
+            <main>{children}</main>
+            {/* <Footer /> */}
+          </div> 
+         </ThemeProvider>
 
         <Script
           id="font-optimization"

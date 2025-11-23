@@ -319,7 +319,7 @@ export default function ContactUsClient() {
         </div>
 
         {/* Move social media section above the grid */}
-        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 mb-8">
+        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 mb-8 mt-8">
           <h2 className="text-2xl font-semibold text-white mb-6">
             Follow Us
           </h2>

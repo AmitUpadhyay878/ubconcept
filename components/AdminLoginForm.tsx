@@ -1,8 +1,9 @@
 'use client'
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-
 import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { authClient } from '@/utils/auth-client';
+
 
 interface LoginFormInputs {
   email: string;
@@ -10,9 +11,9 @@ interface LoginFormInputs {
 }
 
 const AdminLoginForm = () => {
+  const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
   
   const {
     register,
@@ -21,25 +22,55 @@ const AdminLoginForm = () => {
   } = useForm<LoginFormInputs>();
 
   const onSubmit = async (data: LoginFormInputs) => {
+  
+    const { email, password } = data;
+
     try {
       setIsLoading(true);
       setError(null);
 
+    const { data: response, error } = await authClient.signIn.email({
+    email: email,//"amit.ubconcept@ubconcept.com" 
+    password: password, // "Amit0305@ubconcept"
+    rememberMe: true,
+    // callbackURL: "/admin/dashboard",
+},
+  {
+        onRequest: (ctx) => {
+           setIsLoading(true);
+        },
+        onSuccess: (ctx) => {
+           router.push('/admin/dashboard');
+        },
+        onError: (ctx) => {
+          if (ctx.error.status === 403) {
+        alert("Please verify your email address");
+      }
+      setError(ctx.error.message);
+    },
+        },
+);
+
+    if (error) {
+      setError(error.message || error.statusText || 'An error occurred');
+      return;
+    }
     
     } catch (error) {
-      setError('An error occurred. Please try again.');
+      setError(error instanceof Error ? error.message : 'An unexpected error occurred');
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black py-12 px-4 sm:px-6 lg:px-8">
+    <div className="flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black py-5 px-4 sm:px-6 lg:px-4">
       <div className="max-w-md w-full space-y-8 bg-gray-800 p-8 rounded-lg shadow-2xl">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-white pb-4">
             Admin Login
           </h2>
+          <hr />
         </div>
 
         {error && (

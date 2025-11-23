@@ -48,7 +48,7 @@ const Sitemap = () => {
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden"
             >
               <div className="p-6">
-                {route.path ? (
+                {route.path && !route.subRoutes ? (
                   <Link 
                     href={route.path}
                     className="group flex items-center justify-between"
@@ -59,8 +59,19 @@ const Sitemap = () => {
                     <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-amber-400 transition-transform group-hover:translate-x-1" />
                   </Link>
                 ) : (
-                  <>
+                  <>{ route.name || route.name !=="" ? (
+                    <Link 
+                    href={route.path}
+                    className="group flex items-center justify-between"
+                  >
+                    <span className="text-xl font-medium text-white group-hover:text-amber-400 transition-colors">
+                      {route.name}
+                    </span>
+                    <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-amber-400 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                  ) :(
                     <h2 className="text-xl font-medium text-white mb-4">{route.name}</h2>
+                  )}
                     {route.subRoutes && (
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                         {route.subRoutes.map((subRoute) => (
