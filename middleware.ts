@@ -24,6 +24,7 @@ export const config = {
    matcher: [
        "/admin/dashboard",
         "/admin/blog-management/:path*",
+        "/admin/category-management/:path*",
         "/admin/user-management",
         "/admin/jobs-management",
    ],

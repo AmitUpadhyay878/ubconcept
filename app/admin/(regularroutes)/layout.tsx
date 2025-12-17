@@ -1,6 +1,7 @@
 import Sidebar from '@/components/Sidebar';
 import { auth } from '@/utils/auth';
 import { headers } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 export default async function AdminLayout({
   children,
@@ -13,6 +14,7 @@ export default async function AdminLayout({
     })
 
     if(!session) {
+        redirect("/admin/signin")
         throw new Error('Unauthorized')
     }
 
