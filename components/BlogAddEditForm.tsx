@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { Loader2 } from 'lucide-react';
 
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select } from './ui/select';
 import { useCategoryStore } from '@/zustand/useCategoryStore';
+import TiptapEditor from './tiptap-editor';
 
 
 const BlogAddEditForm = ({ params }: { params?: { id?: string } }) => {
@@ -22,7 +23,7 @@ const BlogAddEditForm = ({ params }: { params?: { id?: string } }) => {
 
 
 
-  const {register, handleSubmit, formState: { errors }, reset,watch} = useForm();
+  const {register, handleSubmit, formState: { errors }, reset,watch,control} = useForm();
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -79,7 +80,7 @@ const BlogAddEditForm = ({ params }: { params?: { id?: string } }) => {
   };
 
   return (
-      <div>
+      <div className='w-full h-full rounded-md p-4'>
           <form onSubmit={handleSubmit(onSubmit)}>
               <div className='flex flex-col'>
                 <label htmlFor="title">Title</label>
@@ -88,20 +89,14 @@ const BlogAddEditForm = ({ params }: { params?: { id?: string } }) => {
                   errors.title && <span className='text-red-500'>{errors.title.message as string}</span>
                  }
               </div>
-              <div className='flex flex-col'>
-                <label htmlFor="content">Content</label>
-                <Textarea id="content" {...register('content',{required:'Content is required'})} />
-                 {
-                  errors.content && <span className='text-red-500'>{errors.content.message as string}</span>
-                 }
-              </div>
-              <div className='flex flex-col'>
+                          <div className='flex flex-col'>
                 <label htmlFor="excerpt">Excerpt</label>
                 <Textarea id="excerpt" {...register('excerpt',{required:'Excerpt is required'})} />
                  {
                   errors.excerpt && <span className='text-red-500'>{errors.excerpt.message as string}</span>
                  }
               </div>
+                
                <div className='flex flex-col'>
                 <label htmlFor="FeatureImage">Feature Image</label>
                 <Input id="FeatureImage" type="file" {...register('FeatureImage')} />
@@ -109,6 +104,20 @@ const BlogAddEditForm = ({ params }: { params?: { id?: string } }) => {
                   errors.FeatureImage && <span className='text-red-500'>{errors.FeatureImage.message as string}</span>
                  }    
               </div>
+              <div className='flex flex-col'>
+                <label htmlFor="content">Content</label>
+                <Controller 
+                   control={control}
+                   name="content"
+                   render={({ field }) => (
+                   <TiptapEditor />
+                   )}
+                />
+                 {
+                  errors.content && <span className='text-red-500'>{errors.content.message as string}</span>
+                 }
+              </div>
+
               <div className='flex flex-col'>
                  <label htmlFor="categories">Category</label>
                 <select id="categories" {...register('categories',{required:'Category is required'})}>
@@ -124,7 +133,7 @@ const BlogAddEditForm = ({ params }: { params?: { id?: string } }) => {
                 <Checkbox id="published" {...register('published')} />
               </div>  
               <div className='flex flex-col'>
-                <Button type="submit" disabled={isSubmitting}>
+                <Button type="submit" disabled={isSubmitting} className='w-full '>
                   {isSubmitting ? (
                     <Loader2 className="animate-spin" />
                   ) : (

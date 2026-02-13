@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { authClient } from '@/utils/auth-client';
+import { Input } from './ui/input';
+import { Button } from './ui/button';
 
 
 interface LoginFormInputs {
@@ -85,7 +87,7 @@ const AdminLoginForm = () => {
               <label htmlFor="email" className="sr-only">
                 Email address
               </label>
-              <input
+              <Input
                 {...register('email', {
                   required: 'Email is required',
                   pattern: {
@@ -110,7 +112,7 @@ const AdminLoginForm = () => {
               <label htmlFor="password" className="sr-only">
                 Password
               </label>
-              <input
+              <Input
                 {...register('password', {
                   required: 'Password is required',
                   minLength: {
@@ -133,7 +135,7 @@ const AdminLoginForm = () => {
           </div>
 
           <div>
-            <button
+            <Button
               type="submit"
               disabled={isLoading}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent 
@@ -148,7 +150,7 @@ const AdminLoginForm = () => {
                 </svg>
               ) : null}
               {isLoading ? 'Signing in...' : 'Sign in'}
-            </button>
+            </Button>
           </div>
         </form>
       </div>
