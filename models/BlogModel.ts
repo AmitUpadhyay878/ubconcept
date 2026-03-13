@@ -12,6 +12,9 @@ const BlogSchema = new mongoose.Schema({
       description:{
             type: String
       },
+      newCategory: {
+            type: String
+      },
       author: {
             type: Object,
             required: true,
