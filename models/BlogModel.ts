@@ -13,6 +13,9 @@ const BlogSchema = new mongoose.Schema({
             type: Object,
             required: true,
       },
+      addnew:{
+            type: String,
+      },
       categories: [
             {
                   type: mongoose.Schema.Types.ObjectId,
